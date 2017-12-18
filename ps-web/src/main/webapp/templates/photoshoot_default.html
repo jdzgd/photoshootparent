@@ -8,6 +8,7 @@
     <!--<link rel="stylesheet" href="../static/css/ps_default.css">-->
     <link rel="stylesheet" href="../static/css/nav.css">
     <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="stylesheet" href="../static/css/adaptive.css">
 </head>
 
 
@@ -24,7 +25,7 @@
             <h2>请输入您的账号密码</h2>
             <form method="post" action="/PsUserController/check">
                 <div class="group">
-                    <input type="text" id="account" name="account" autofocus="" required=""  />
+                    <input type="text" id="account" name="account" autofocus="" required=""/>
                     <span class="line"></span>
                     <label>用户名</label>
                     <span class="err"></span>
@@ -51,7 +52,8 @@
                     <span class="err"></span>
                 </div>
                 <div class="group">
-                    <input type="password" name="password" onchange="checkPwds()" id="password" autofocus="" required="">
+                    <input type="password" name="password" onchange="checkPwds()" id="password" autofocus=""
+                           required="">
                     <span class="line"></span>
                     <label>密码</label>
                     <span class="err"></span>
@@ -137,11 +139,44 @@
             <div class="start-line">
                 <a>精彩呈现</a>
             </div>
-            <div class="activity-container">
-
+            <!--<div class="activity-container">-->
+            <div class="introduce">
+                <div class="photo">
+                    <img class="videoImg" src="../img/index/videoImg.png" alt="">
+                </div>
+                <div class="sidebar">
+                    <div class="sidebar">
+                        <h1>提高你的摄影技巧</h1>
+                        <p>通过尝试新事物来挑战自我。参加由具有广泛专业知识的有影响力的摄影师领导的在线摄影班。习新的技能，并与各地志同道合的摄影师联系。</p>
+                        <div class="btn">
+                            <a class="btnA" href="#">查看类</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="introduce">
+                <div class="photo">
+                    <img class="photo" src="../img/index/phoneImg.png" alt="">
+                </div>
+                <div class="sidebar">
+                    <div class="sidebar">
+                        <h1>与您一起影约</h1>
+                        <p>下载美丽而有趣的方式来捕捉，编辑，分享和发现鼓舞人心的照片</p>
+                        <div class="btn">
+                            <a class="btnA" href="#">
+                                <img class="btnImg" src="../img/index/apple.png" alt="">app store</a>
+                            <a class="btnA" href="#">
+                                <img class="btnImg" src="../img/index/google.png" alt=""> google play</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+
+
+
     <footer>
         <div class="foot-container">
             <ul>

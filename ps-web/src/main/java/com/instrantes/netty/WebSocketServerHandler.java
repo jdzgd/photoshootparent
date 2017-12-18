@@ -1,5 +1,6 @@
 package com.instrantes.netty;
 
+import com.instrantes.pojo.IMMessage;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.*;
@@ -7,6 +8,7 @@ import io.netty.handler.codec.http.*;
 import io.netty.handler.codec.http.websocketx.*;
 import io.netty.util.CharsetUtil;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,15 +16,19 @@ import java.util.logging.Logger;
 import static io.netty.handler.codec.http.HttpUtil.isKeepAlive;
 
 /**
- * Created by Lime on 2017/11/30
+ * @author Lime
+ * @date 2017/11/30
  */
 public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> {
     private static final Logger logger = Logger.getLogger(WebSocketServerHandler.class.getName());
     private WebSocketServerHandshaker handshaker;
+    private ChannelHandlerContext ctx;
 
-    /**2017年12月5日此处有毒，原本放在此处的握手不能升级为websocket，放在channelRead方法中即可
+    /**
+     * 2017年12月5日此处有毒，原本放在此处的握手不能升级为websocket，放在channelRead方法中即可
      * channelRead0 在 Netty 5中可能会被改名为messageReceived
      * 回调完成后Netty会帮我们完成释放
+     * 2017年12月14日或许因为此处就是因为自动释放ReferenceCountUtil.release(msg);
      * Date: 2017/12/4
      */
     @Override
@@ -37,9 +43,10 @@ public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> 
 //        }
     }
 
+    @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        //传统http接入
-        if (msg instanceof FullHttpRequest) { //FullHttpRequest结合HttpRequest和FullHttpMessage
+        //传统http接入。FullHttpRequest是结合HttpRequest和FullHttpMessage
+        if (msg instanceof FullHttpRequest) {
             handleHttpRequest(ctx, (FullHttpRequest) msg);
         }
         //WebSocket接入
@@ -52,6 +59,7 @@ public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> 
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
         ctx.flush();
     }
+
     private void handlerWebSocketFrame(ChannelHandlerContext ctx, WebSocketFrame frame) {
         // 判断是否关闭链路的指令，如果是关闭按链路的指令就关闭链路
         if (frame instanceof CloseWebSocketFrame) {
@@ -94,23 +102,26 @@ public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> 
                 "ws://localhost:7397/websocket", null, false);
         handshaker = webSocketServerHandshakerFactory.newHandshaker(request);
 
-        if (handshaker == null)
+        if (handshaker == null) {
             WebSocketServerHandshakerFactory.sendUnsupportedVersionResponse(ctx.channel());
-        else
+        } else {
             handshaker.handshake(ctx.channel(), request);
+        }
     }
 
-    //返回信息
+    /**
+     * 返回信息
+     */
     private static void sendHttpRespones(ChannelHandlerContext ctx, FullHttpRequest request, FullHttpResponse response) {
         //返回应答给客户端
         if (response.status().code() != 200) {
             ByteBuf byteBuf = Unpooled.copiedBuffer(response.status().toString(), CharsetUtil.UTF_8);
-            System.out.println("response-------------------:"+response.content());
-            System.out.println("request-------------------:"+request);
+            System.out.println("response-------------------:" + response.content());
+            System.out.println("request-------------------:" + request);
             response.content().writeBytes(byteBuf);
             byteBuf.release();
             //setContentLength()弃用改为HttpUtil.setContentLength(HttpMessage, long)
-            HttpUtil.setContentLength(request,request.content().readableBytes());
+            HttpUtil.setContentLength(request, request.content().readableBytes());
         }
         // 如果是非Keep-Alive，关闭连接
         ChannelFuture f = ctx.channel().writeAndFlush(response);
@@ -121,22 +132,29 @@ public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> 
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        Channel incoming = ctx.channel();
-        System.out.println("Client:" + incoming.remoteAddress() + "在线");
+        System.err.println("有客户端连接:" + ctx.channel().remoteAddress() + "在线");
     }
 
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        Channel incoming = ctx.channel();
         //        Global.group.remove(ctx.channel());
-        System.out.println("Client:" + incoming.remoteAddress() + "掉线");
+        System.err.println("客户端:" + ctx.channel().remoteAddress() + "掉线");
+    }
+
+    /**
+     * 发送消息
+     */
+    public boolean sendMsg(IMMessage msg) throws IOException {
+        System.err.println("服务器推送消息:" + msg);
+        ctx.writeAndFlush(msg);
+        return !"q".equals(msg.getMsg());
     }
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause)
             throws Exception {
         Channel incoming = ctx.channel();
-        System.out.println("Client:" + incoming.remoteAddress() + "异常");
+        System.out.println("客户端:" + incoming.remoteAddress() + "异常");
         // 当出现异常就关闭连接
         cause.printStackTrace();
         ctx.close();
