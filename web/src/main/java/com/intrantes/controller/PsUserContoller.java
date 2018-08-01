@@ -1,6 +1,8 @@
 package com.intrantes.controller;
 
 
+import com.alibaba.fastjson.support.spring.annotation.FastJsonFilter;
+import com.alibaba.fastjson.support.spring.annotation.FastJsonView;
 import com.intrantes.base.AppException;
 import com.intrantes.entity.PsUser;
 import com.intrantes.entity.PsWatch;
@@ -86,6 +88,8 @@ public class PsUserContoller {
     /**登录后,显示用户粉丝数量*/
     @RequestMapping(value = "/showFansCount", method = RequestMethod.GET)
     @ResponseBody
+//    @FastJsonView(
+//            include = {@FastJsonFilter(clazz = PsWatch.class, props = {"id", "name"})})
     public PsWatch getPsWatchFansCountByPsUserId(int id) {
         PsWatch psWatch = psWatchService.getPsWatchFansCountByPsUserId(id);
         return psWatch;
