@@ -4,10 +4,7 @@ import com.intrantes.service.PsLikeService;
 import com.intrantes.service.PsUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -23,7 +20,7 @@ public class PsLikeController {
     @Autowired
     PsUserService psUserService;
 
-    @RequestMapping(value = "/likeRecord", method = RequestMethod.POST)
+    @PostMapping(value = "/likeRecord")
     /**
      *当用户点赞时，触发该功能，插入一条点赞记录
      *@param [likeCollectionID]

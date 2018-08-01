@@ -97,7 +97,7 @@ public class PsUserContoller {
         return psWatch;
     }
 
-    //登录后,显示用户关注数量
+    /**登录后,显示用户关注数量*/
     @GetMapping(value = "/showWatchUserCount")
     @ResponseBody
     public PsWatch getPsWatchUserCountByPsUserId(int id) {
@@ -114,7 +114,7 @@ public class PsUserContoller {
         return psUser;
     }
 
-    //    插入PsUser
+    /**插入PsUser*/
     @PostMapping(value = "/register")
     @ResponseBody
     public int insertPsUser(String userName, String userPassword) {
