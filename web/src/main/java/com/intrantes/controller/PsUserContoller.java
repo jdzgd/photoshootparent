@@ -30,17 +30,19 @@ public class PsUserContoller {
     private PsWatchService psWatchService;
     @Autowired
     private PsUserService psUserService;
-    //此处是用户注册后登录的关键点
+    /**
+     * 此处是用户注册后登录的关键点
+     */
     @Autowired
     protected AuthenticationManager authenticationManager;
 
-    @RequestMapping(value = "/testuser", method = RequestMethod.GET)
+    @GetMapping(value = "/testuser")
     public String setForm() {
         return "testuser";
     }
 
     //    根据id查询PsUser
-    @RequestMapping(value = "/findUser", method = RequestMethod.GET)
+    @GetMapping(value = "/findUser")
     @ResponseBody
     public PsUser selectPsUserById(Integer id) {
         PsUser psUser = psUserService.selectPsUserById(id);
@@ -60,11 +62,13 @@ public class PsUserContoller {
 //        return psUser;
 //    }
 
-    //用户登录功能，显示用户信息，此处实际属于登陆状态的一个判断，如果没找到，则提醒需要登录
-    @RequestMapping(value = "/show", method = RequestMethod.GET)
+    /**
+     * 用户登录功能，显示用户信息，此处实际属于登陆状态的一个判断，如果没找到，则提醒需要登录
+     */
+    @GetMapping(value = "/show")
     @ResponseBody
     public PsUser selectPsUserByName() {
-        Authentication authentication =SecurityContextHolder.getContext().getAuthentication();
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         PsUser psUser = psUserService.selectPsUserByName(authentication.getName());
         return psUser;
@@ -85,8 +89,10 @@ public class PsUserContoller {
 //        return "redirect:/templates/photoshoot_default.html";
 //    }
 
-    /**登录后,显示用户粉丝数量*/
-    @RequestMapping(value = "/showFansCount", method = RequestMethod.GET)
+    /**
+     * 登录后,显示用户粉丝数量
+     */
+    @GetMapping(value = "/showFansCount")
     @ResponseBody
 //    @FastJsonView(
 //            include = {@FastJsonFilter(clazz = PsWatch.class, props = {"id", "name"})})
@@ -94,8 +100,9 @@ public class PsUserContoller {
         PsWatch psWatch = psWatchService.getPsWatchFansCountByPsUserId(id);
         return psWatch;
     }
-    //登录后,显示用户关注数量
-    @RequestMapping(value = "/showWatchUserCount", method = RequestMethod.GET)
+
+    /**登录后,显示用户关注数量*/
+    @GetMapping(value = "/showWatchUserCount")
     @ResponseBody
     public PsWatch getPsWatchUserCountByPsUserId(int id) {
         PsWatch psWatch = psWatchService.getPsWatchUserCountByPsUserId(id);
@@ -103,16 +110,16 @@ public class PsUserContoller {
     }
 
     //get方式，通过id来查询watch以及fan用户部分信息
-    @RequestMapping(value = "/psUser/{id}", method = RequestMethod.GET)
+    @GetMapping(value = "/psUser/{id}")
     @ResponseBody
-    public PsUser getPsWatchDetail(@PathVariable("id")Integer id) {
-        PsUser psUser=psUserService.selectPsUserById(id);
+    public PsUser getPsWatchDetail(@PathVariable("id") Integer id) {
+        PsUser psUser = psUserService.selectPsUserById(id);
         System.out.println(psUser.getUserName());
         return psUser;
     }
 
-    //    插入PsUser
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    /**插入PsUser*/
+    @PostMapping(value = "/register")
     @ResponseBody
     public int insertPsUser(String userName, String userPassword) {
         PsUser psUser = new PsUser();
@@ -124,19 +131,20 @@ public class PsUserContoller {
     }
 
     //新插入PsUser
-    @RequestMapping(value = "/newuser", method = RequestMethod.POST)
+    @PostMapping(value = "/newuser")
     @ResponseBody
     public int newPsUser(@RequestBody PsUser psUser, HttpServletRequest request) {
         //返回插入是否成功1/0
-        return  psUserService.insertPsUser(psUser,request);
+        return psUserService.insertPsUser(psUser, request);
     }
 
     /**
      * 验证用户是否存在
+     *
      * @param username
      * @return
      */
-    @RequestMapping(value = "/resetuserpw", method = RequestMethod.POST)
+    @PostMapping(value = "/resetuserpw")
     @ResponseBody
     public String resetUserPw(@RequestParam("username") String username) {
         PsUser psUser = psUserService.selectPsByUserNameEmail(username);
@@ -160,7 +168,7 @@ public class PsUserContoller {
      * @throws javax.mail.MessagingException
      * @throws UnsupportedEncodingException
      */
-    @RequestMapping(value = "/sendEmailCode", method = RequestMethod.POST)
+    @PostMapping(value = "/sendEmailCode")
     @ResponseBody
     public String sendEmailCode(@RequestParam("email") String email, @RequestParam("username") String username) throws MessagingException, GeneralSecurityException, javax.mail.MessagingException, UnsupportedEncodingException {
         //判断从页面传来的邮箱是否和数据库的匹配
@@ -176,7 +184,7 @@ public class PsUserContoller {
     /**
      * 修改密码
      */
-    @RequestMapping(value = "/EmailCodeResetPw", method = RequestMethod.POST)
+    @PostMapping(value = "/EmailCodeResetPw")
     @ResponseBody
     public String EmailCodeResetPw(@RequestBody LinkedHashMap<String, String> psUserJson) {
         return psUserService.isEmptyCode(Integer.parseInt(psUserJson.get("emailcode")), psUserJson.get("userName"), psUserJson.get("userPassword"));
@@ -196,8 +204,6 @@ public class PsUserContoller {
         System.out.println("come testE");
         throw new SQLException();
     }
-
-
 
 
 //    //根据用户id查询作品的详情

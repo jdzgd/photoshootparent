@@ -4,6 +4,8 @@ import com.intrantes.dao.PsRoleDao;
 import com.intrantes.dao.PsUserDao;
 import com.intrantes.entity.PsRole;
 import com.intrantes.entity.PsUser;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -18,6 +20,7 @@ import java.util.List;
 
 @Service("userDetailsServiceImpl")
 public class UserDetailsServiceImpl implements UserDetailsService {
+    private static Logger logger = LogManager.getLogger();
 
     @Autowired
     private PsUserDao psUserDao;
@@ -30,7 +33,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         PsUser psUser = psUserDao.selectPsUserByName(userName);
         if (psUser == null) {
-            System.out.println("User not found");
+            logger.info("User not found");
             throw new UsernameNotFoundException("Username not found");
         }
         PsRole psRole = psRoleDao.selectUserRoleById(psUser.getUserId());

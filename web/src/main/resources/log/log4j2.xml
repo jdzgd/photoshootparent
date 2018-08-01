@@ -2,6 +2,9 @@
 
 <!--
 类默认配置
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
     private static Logger logger = LogManager.getLogger();
         logger.trace("trace message");
         logger.debug("debug message");
