@@ -27,8 +27,7 @@ spring:
 #    host:
 
 
-
-
+#logging.你的包名.mybatis接口包=debug
 # mybatis
 
 
@@ -71,3 +70,6 @@ mybatis:
 #app.login.url=/login
 ##应用登出地址
 #app.logout.url=/logout
+
+logging:
+  config: classpath:log/log4j2.xml
