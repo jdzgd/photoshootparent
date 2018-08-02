@@ -72,4 +72,4 @@ mybatis:
 #app.logout.url=/logout
 
 logging:
-  config: classpath:log/log4j2_dev.xml
+  config: classpath:log/log4j2_pro.xml
