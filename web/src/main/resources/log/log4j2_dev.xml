@@ -12,8 +12,6 @@ import org.apache.logging.log4j.Logger;
         logger.warn("warn message");
         logger.error("error message");
         logger.fatal("fatal message");
-        logger.info("today");
-
 -->
 <!--
     Configuration后面的status，这个用于设置log4j2自身内部的信息输出，可以不设置，当设置成trace时，你会看到log4j2内部各种详细输出。
@@ -24,7 +22,7 @@ import org.apache.logging.log4j.Logger;
     <properties>
         <!-- 配置日志文件输出目录，此配置将日志输出到tomcat根目录下的指定文件夹 -->
         <property name="LOG_HOME">${sys:catalina.home}/logs</property>
-        <property name="FILE_NAME">PsLogFile</property>
+        <property name="FILE_NAME">Ps_info</property>
         <property name="log.sql.level">debug</property>
     </properties>
     <Appenders>
@@ -41,7 +39,7 @@ import org.apache.logging.log4j.Logger;
         <!--${web:rootDir}代表项目的根目录-->
         <RollingRandomAccessFile name="MyFile"
                                  fileName="${LOG_HOME}/${FILE_NAME}.log"
-                                 filePattern="${LOG_HOME}/$${date:yyyy-MM}/${FILE_NAME}-%d{yyyy-MM-dd HH-mm}-%i.log">
+                                 filePattern="${LOG_HOME}/$${date:yyyy-MM}/${FILE_NAME}-%d{yyyy-MM-dd}-%i.log">
             <PatternLayout
                     pattern="%5p [%t] %d{yyyy-MM-dd HH:mm:ss} (%F:%L)- %m%n"/>
             <!-- 备份策略:满足其中一个就可以启动备份-->
@@ -67,7 +65,7 @@ import org.apache.logging.log4j.Logger;
         <!-- ERROR级别日志 -->
         <RollingRandomAccessFile name="error_appender"
                                  immediateFlush="true" fileName="${LOG_HOME}/error.log"
-                                 filePattern="${LOG_HOME}/error/error - %d{yyyy-MM-dd HH_mm_ss}.log.gz">
+                                 filePattern="${LOG_HOME}/error/error - %d{yyyy-MM-dd}.log.gz">
             <PatternLayout>
                 <pattern>%5p [%t] %d{yyyy-MM-dd HH:mm:ss} (%F:%L) %m%n</pattern>
             </PatternLayout>
