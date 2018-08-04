@@ -21,8 +21,9 @@ import org.apache.logging.log4j.Logger;
 <Configuration status="WARN" monitorInterval="300">
     <properties>
         <!-- 配置日志文件输出目录，此配置将日志输出到tomcat根目录下的指定文件夹 -->
-        <property name="LOG_HOME">${sys:catalina.home}/logs</property>
-        <property name="FILE_NAME">Ps_info</property>
+        <!--<property name="LOG_HOME">${sys:catalina.home}/logs</property>-->
+        <property name="LOG_HOME">d:/logs</property>
+        <property name="FILE_NAME">Ps</property>
         <property name="log.sql.level">debug</property>
     </properties>
     <Appenders>
@@ -37,9 +38,9 @@ import org.apache.logging.log4j.Logger;
             filePattern  指定当发生Rolling时，
             是否压缩备份日志：直接在filePattern属性的文件名称最后加对应的压缩后缀，如gzip压缩用 .gz-->
         <!--${web:rootDir}代表项目的根目录-->
-        <RollingRandomAccessFile name="MyFile"
-                                 fileName="${LOG_HOME}/${FILE_NAME}.log"
-                                 filePattern="${LOG_HOME}/$${date:yyyy-MM}/${FILE_NAME}-%d{yyyy-MM-dd}-%i.log">
+        <RollingRandomAccessFile name="trace_appender"
+                                 fileName="${LOG_HOME}/${FILE_NAME}-trace/trace.log"
+                                 filePattern="${LOG_HOME}/${FILE_NAME}-trace/trace-%d{yyyy-MM-dd}-%i.log">
             <PatternLayout
                     pattern="%5p [%t] %d{yyyy-MM-dd HH:mm:ss} (%F:%L)- %m%n"/>
             <!-- 备份策略:满足其中一个就可以启动备份-->
@@ -53,7 +54,7 @@ import org.apache.logging.log4j.Logger;
                 <!-- 删除指定目录下60天之前的日志-->
                 <Delete basePath="${log.path}" maxDepth="2">；
                     <IfFileName glob="*/app-*.log.gz"/>
-                    <IfLastModified age="60d"/>
+                    <IfLastModified age="30d"/>
                 </Delete>
             </DefaultRolloverStrategy>
         </RollingRandomAccessFile>
@@ -64,17 +65,25 @@ import org.apache.logging.log4j.Logger;
 
         <!-- ERROR级别日志 -->
         <RollingRandomAccessFile name="error_appender"
-                                 immediateFlush="true" fileName="${LOG_HOME}/error.log"
-                                 filePattern="${LOG_HOME}/error/error - %d{yyyy-MM-dd}.log.gz">
+                                 immediateFlush="true" fileName="${LOG_HOME}/${FILE_NAME}-error/error.log"
+                                 filePattern="${LOG_HOME}/${FILE_NAME}-error/error-%d{yyyy-MM-dd}.log.gz">
+            <Filters>
+                <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
             <PatternLayout>
                 <pattern>%5p [%t] %d{yyyy-MM-dd HH:mm:ss} (%F:%L) %m%n</pattern>
             </PatternLayout>
             <Policies>
-                <SizeBasedTriggeringPolicy size="2MB"/>
+                <TimeBasedTriggeringPolicy modulate="true"
+                                           interval="1"/>
             </Policies>
-            <Filters>
-                <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
-            </Filters>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${LOG_HOME}/${FILE_NAME}-error" maxDepth="1">
+                    <IfFileName glob="/error*.gz"/>
+                    <IfLastModified age="60d"/>
+                </Delete>
+            </DefaultRolloverStrategy>
+
         </RollingRandomAccessFile>
 
     </Appenders>
@@ -84,7 +93,7 @@ import org.apache.logging.log4j.Logger;
         additivity属性：是否继承父logger(Root)的属性,如果设置为true（默认值）则log会被打印两次(来自对应的logger和root)-->
     <Loggers>
         <Logger name="PsLogFile" level="trace" additivity="false">
-            <AppenderRef ref="MyFile"/>
+            <AppenderRef ref="trace_appender"/>
         </Logger>
         <!-- 为sql语句配置特殊的Log级别，方便调试 -->
         <Logger name="com.intrantes.dao" level="${log.sql.level}" additivity="false">
