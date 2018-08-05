@@ -1,6 +1,8 @@
 package com.intrantes.controller;
 
 
+import com.alibaba.fastjson.support.spring.annotation.FastJsonFilter;
+import com.alibaba.fastjson.support.spring.annotation.FastJsonView;
 import com.intrantes.entity.PsCollection;
 import com.intrantes.entity.PsLike;
 import com.intrantes.service.PsCollectionService;
@@ -112,7 +114,8 @@ public class PsCollectionController {
 //    }
 
 
-    //单个作品信息
+    /**单个作品信息*/
+    @FastJsonView(exclude = {@FastJsonFilter(clazz=PsCollection.class,props = {"collectionAdress","collectionCreatetime"})})
     @RequestMapping(value = "/singleColletion", method = RequestMethod.POST)
     @ResponseBody
     public PsCollection selectSingleCollectionInfoByCollectionId(Integer collectionId) {

@@ -13,6 +13,9 @@ spring:
     view:
       prefix: /templates/
       suffix: .html
+  http:
+    converters:
+      preferred-json-mapper: fastjson
 # redis配置
 #  redis:
 #    jedis:
