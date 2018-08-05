@@ -31,7 +31,7 @@ spring:
 # mybatis
 
 
-mybatis:
+mybatis-plus:
   mapper-locations: classpath:mappers/*.xml
 #  生成实体类的别名
   type-aliases-package: com.intrantes.entity
