@@ -1,17 +1,21 @@
 package com.intrantes.entity;
 
-import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.enums.IdType;
 
 /**
  * ps_collection实体类
  *
  * @author
  */
-
+@TableName("ps_collection")
 public class PsCollection {
     /**
      * 作评id
      */
+    @TableId(value = "collection_id",type = IdType.AUTO)
     private Integer collectionId;
     /**
      * 作品用户id
@@ -65,13 +69,18 @@ public class PsCollection {
     /**
      * 此处为新添加：作品所属用户、喜欢的总人数、当前用户是否喜欢
      */
+    @TableField(exist=false)
     private String userName;
+    @TableField(exist=false)
     private Integer likeCount;
+    @TableField(exist=false)
     private Integer likeStatus;
+    @TableField(exist=false)
     private PsUser psUser;
     /**
      * 添加PsLike实体类
      */
+    @TableField(exist=false)
     private PsLike psLike;
 
     /**

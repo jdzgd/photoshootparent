@@ -112,6 +112,11 @@
                 <artifactId>mybatis-plus</artifactId>
                 <version>${mybatisplus.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-support</artifactId>
+                <version>${mybatisplus.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>javax.mail</groupId>
