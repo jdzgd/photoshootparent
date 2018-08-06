@@ -28,7 +28,7 @@ public class PsCollection {
     /**
      * 作品图片位置
      */
-    private String collectionPhotolocation;
+    private String collectionPhotoLocation;
     /**
      * 作品名称
      */
@@ -90,18 +90,18 @@ public class PsCollection {
         super();
     }
 
-    public PsCollection(Integer collectionUserid, String collectionPhotolocation,String collectionSmallPhotoLocation) {
+    public PsCollection(Integer collectionUserid, String collectionPhotoLocation,String collectionSmallPhotoLocation) {
         this.collectionUserid = collectionUserid;
-        this.collectionPhotolocation = collectionPhotolocation;
+        this.collectionPhotoLocation = collectionPhotoLocation;
         this.collectionSmallPhotoLocation = collectionSmallPhotoLocation;
     }
 
-    public PsCollection(Integer collectionId, Integer collectionUserid, Integer collectionTagid, String collectionPhotolocation, String collectionPhotoname, String collectionPhotointroduction, Object collectionPrice, String collectionPhotoinformation, String collectionAdress, Integer collectionFlag, java.util.Date collectionCreatetime, java.util.Date collectionUpdatetime) {
+    public PsCollection(Integer collectionId, Integer collectionUserid, Integer collectionTagid, String collectionPhotoLocation, String collectionPhotoname, String collectionPhotointroduction, Object collectionPrice, String collectionPhotoinformation, String collectionAdress, Integer collectionFlag, java.util.Date collectionCreatetime, java.util.Date collectionUpdatetime) {
         super();
         this.collectionId = collectionId;
         this.collectionUserid = collectionUserid;
         this.collectionTagid = collectionTagid;
-        this.collectionPhotolocation = collectionPhotolocation;
+        this.collectionPhotoLocation = collectionPhotoLocation;
         this.collectionPhotoname = collectionPhotoname;
         this.collectionPhotointroduction = collectionPhotointroduction;
         this.collectionPrice = collectionPrice;
@@ -138,12 +138,12 @@ public class PsCollection {
         this.collectionTagid = collectionTagid;
     }
 
-    public String getCollectionPhotolocation() {
-        return this.collectionPhotolocation;
+    public String getCollectionPhotoLocation() {
+        return this.collectionPhotoLocation;
     }
 
-    public void setCollectionPhotolocation(String collectionPhotolocation) {
-        this.collectionPhotolocation = collectionPhotolocation;
+    public void setCollectionPhotoLocation(String collectionPhotoLocation) {
+        this.collectionPhotoLocation = collectionPhotoLocation;
     }
 
 
@@ -261,7 +261,7 @@ public class PsCollection {
 
     @Override
     public String toString() {
-        return "PsCollection [collectionId=" + collectionId + " , collectionUserid=" + collectionUserid + " , collectionTagid=" + collectionTagid + " , collectionPhotolocation=" + collectionPhotolocation + " , collectionPhotoname=" + collectionPhotoname + " , collectionPhotointroduction=" + collectionPhotointroduction + " , collectionPrice=" + collectionPrice + " , collectionPhotoinformation=" + collectionPhotoinformation + " , collectionAdress=" + collectionAdress + " , collectionFlag=" + collectionFlag + " , collectionCreatetime=" + collectionCreatetime + " , collectionUpdatetime=" + collectionUpdatetime + " , collectionSmallPhotoLocation=" + collectionSmallPhotoLocation + "  ]";
+        return "PsCollection [collectionId=" + collectionId + " , collectionUserid=" + collectionUserid + " , collectionTagid=" + collectionTagid + " , collectionPhotoLocation=" + collectionPhotoLocation + " , collectionPhotoname=" + collectionPhotoname + " , collectionPhotointroduction=" + collectionPhotointroduction + " , collectionPrice=" + collectionPrice + " , collectionPhotoinformation=" + collectionPhotoinformation + " , collectionAdress=" + collectionAdress + " , collectionFlag=" + collectionFlag + " , collectionCreatetime=" + collectionCreatetime + " , collectionUpdatetime=" + collectionUpdatetime + " , collectionSmallPhotoLocation=" + collectionSmallPhotoLocation + "  ]";
 
     }
 

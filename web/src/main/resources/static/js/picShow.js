@@ -37,7 +37,7 @@ function requestPic(currentPicId, picLoadNum) {
                 "            <figure>\n" +
                 "                <a href='/templates/picSingle.html?" + data[i].collectionId + "&" + data[i].likeStatus+ "'target='_new'>\n" +
                 "                    <div class='pic'>\n" +
-                "                        <img class='lazyload'  data-src='../upload/" + data[i].collectionPhotolocation + "' alt=''>\n" +
+                "                        <img class='lazyload'  data-src='../upload/" + data[i].collectionPhotoLocation + "' alt=''>\n" +
                 "                    </div>\n" +
                 "                </a>\n" +
                 "                <figcaption>\n" +

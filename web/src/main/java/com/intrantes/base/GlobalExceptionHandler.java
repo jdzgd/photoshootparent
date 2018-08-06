@@ -49,6 +49,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(SQLException.class)
     public String handleSQLException(HttpServletRequest request, Exception ex) {
         log.error("SQLException Occured:: URL=" + request.getRequestURL());
+        ex.printStackTrace();
         return DEFAULT_ERROR_VIEW;
     }
 
@@ -58,6 +59,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(IllegalStateException.class)
     public String handleIllegalStateException(HttpServletRequest request, Exception ex) {
         log.error("IllegalStateException Occured:: URL=" + request.getRequestURL());
+        ex.printStackTrace();
         return DEFAULT_NOT_FOUND_VIEW;
     }
 
@@ -75,7 +77,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     public ResponseEntity<Object> handleException(AppException ex, HttpServletRequest request) throws IOException {
         log.error("" + ex.getMessage());
         log.error("访问资源 " + request.getRequestURI() + " 错误");
-
+        ex.printStackTrace();
         ex = new AppException(UserReturnCode.USER_NOT_ALLOW.getMessage(), UserReturnCode.USER_NOT_ALLOW.getCode());
 //        返回异常json，设置返回状态
         return new ResponseEntity<>(ex.toString(), HttpStatus.BAD_REQUEST);

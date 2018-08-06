@@ -14,7 +14,7 @@ $(function () {
 function getSinglePic(curId) {
     //Ajax
     $.post("/collection/singleColletion", {"collectionId": curId}, function (data) {
-        $('.pic-content > img').attr('src', '../upload/' + data.collectionPhotolocation);
+        $('.pic-content > img').attr('src', '../upload/' + data.collectionPhotoLocation);
         $('.author-avatar > img').attr('src', '../upload/' + data.psUser.userHeadphotoLocation);
         $('.author-name').html(data.psUser.userNickname);
         $(".pic-introduction").html(data.collectionPhotointroduction);

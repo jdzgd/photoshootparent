@@ -1,5 +1,5 @@
-# db config
 
+# db config
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
@@ -81,3 +81,4 @@ app:
 
 logging:
   config: classpath:log/log4j2_dev.xml
+debug: true

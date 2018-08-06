@@ -27,7 +27,7 @@ $(document).ready(function () {
             success: function (data) {
                 for (var i = 0; i < data.length; i++) {
                     //创建图片格式
-                    var src = "../upload/" + data[i].collectionPhotolocation;
+                    var src = "../upload/" + data[i].collectionPhotoLocation;
                     $('.pic_part').append("<div class='item' id='pic" + i + "'>\n" +
                         "                    <img src='" + src + "'/>\n" +
                         "                </div>");
@@ -46,7 +46,7 @@ $(document).ready(function () {
         // $.post("/collection/personCollection", {userId:userId}, function (data) {
         //     for (var i = 0; i < data.length; i++) {
         //         //创建图片格式
-        //         var src ="../upload/"+ data[i].collectionPhotolocation;
+        //         var src ="../upload/"+ data[i].collectionPhotoLocation;
         //         $('.photo_list').append("<li class='photo-item' id='pic"+i+"'>\n" +
         //             "                    <img src='" + src + "'/>\n" +
         //             "                </li>");

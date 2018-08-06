@@ -19,7 +19,7 @@ $(document).ready(function () {
         $.post("/collection/userCollections", {id: userId}, function (data) {
             for (var i = 0; i < data.length; i++) {
                 //创建图片格式
-                var src = "http://localhost:8080/upload/images/" + data[i].collectionPhotolocation;
+                var src = "http://localhost:8080/upload/images/" + data[i].collectionPhotoLocation;
                 $('.photo_list').append("<li class=\"photo-item\" >\n" +
                     "                    <img src=\"" + src + "\"/>\n" +
                     "                </li>")
