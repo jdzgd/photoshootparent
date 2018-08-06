@@ -35,6 +35,7 @@
         <!--<spring.security.version>5.0.0.RC1</spring.security.version>-->
         <mybatis-plus-boot-starter.version>2.3</mybatis-plus-boot-starter.version>
         <mybatisplus.version>2.3</mybatisplus.version>
+        <lombok.version>1.18.0</lombok.version>
     </properties>
 
 
@@ -128,6 +129,15 @@
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
             </dependency>
+
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

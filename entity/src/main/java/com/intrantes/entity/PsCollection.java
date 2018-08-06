@@ -1,29 +1,82 @@
 package com.intrantes.entity;
 
-import java.io.Serializable;
+import com.alibaba.fastjson.JSONObject;
 
-public class PsCollection implements Serializable {
+/**
+ * ps_collection实体类
+ *
+ * @author
+ */
+
+public class PsCollection {
+    /**
+     * 作评id
+     */
     private Integer collectionId;
+    /**
+     * 作品用户id
+     */
     private Integer collectionUserid;
+    /**
+     * 作品类型id
+     */
     private Integer collectionTagid;
+    /**
+     * 作品图片位置
+     */
     private String collectionPhotolocation;
-    private String collectionSmallPhotoLocation;
+    /**
+     * 作品名称
+     */
     private String collectionPhotoname;
+    /**
+     * 作品图照片描述
+     */
     private String collectionPhotointroduction;
+    /**
+     * 作品价格
+     */
     private Object collectionPrice;
+    /**
+     * 作品照片信息
+     */
     private String collectionPhotoinformation;
+    /**
+     * 作品拍摄位置
+     */
     private String collectionAdress;
+    /**
+     * 作品状态
+     */
     private Integer collectionFlag;
+    /**
+     * 作品创建时间
+     */
     private java.util.Date collectionCreatetime;
+    /**
+     * 作品修改时间
+     */
     private java.util.Date collectionUpdatetime;
-    //此处为新添加：作品所属用户、喜欢的总人数、当前用户是否喜欢
+    /**
+     * 作品缩略图位置
+     */
+    private String collectionSmallPhotoLocation;
+
+    /**
+     * 此处为新添加：作品所属用户、喜欢的总人数、当前用户是否喜欢
+     */
     private String userName;
     private Integer likeCount;
     private Integer likeStatus;
-    private  PsUser psUser;
-    //添加PsLike实体类
-    private  PsLike psLike;
+    private PsUser psUser;
+    /**
+     * 添加PsLike实体类
+     */
+    private PsLike psLike;
 
+    /**
+     * 实例化
+     */
     public PsCollection() {
         super();
     }
@@ -49,6 +102,8 @@ public class PsCollection implements Serializable {
         this.collectionCreatetime = collectionCreatetime;
         this.collectionUpdatetime = collectionUpdatetime;
     }
+
+
 
     public Integer getCollectionId() {
         return this.collectionId;
@@ -194,4 +249,12 @@ public class PsCollection implements Serializable {
     public void setPsLike(PsLike psLike) {
         this.psLike = psLike;
     }
+
+    @Override
+    public String toString() {
+        return "PsCollection [collectionId=" + collectionId + " , collectionUserid=" + collectionUserid + " , collectionTagid=" + collectionTagid + " , collectionPhotolocation=" + collectionPhotolocation + " , collectionPhotoname=" + collectionPhotoname + " , collectionPhotointroduction=" + collectionPhotointroduction + " , collectionPrice=" + collectionPrice + " , collectionPhotoinformation=" + collectionPhotoinformation + " , collectionAdress=" + collectionAdress + " , collectionFlag=" + collectionFlag + " , collectionCreatetime=" + collectionCreatetime + " , collectionUpdatetime=" + collectionUpdatetime + " , collectionSmallPhotoLocation=" + collectionSmallPhotoLocation + "  ]";
+
+    }
+
+
 }
