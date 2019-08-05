@@ -1,14 +1,10 @@
 package com.intrantes.controller;
 
 
-import com.alibaba.fastjson.support.spring.annotation.FastJsonFilter;
-import com.alibaba.fastjson.support.spring.annotation.FastJsonView;
-import com.intrantes.base.AppException;
 import com.intrantes.entity.PsUser;
 import com.intrantes.entity.PsWatch;
 import com.intrantes.service.PsUserService;
 import com.intrantes.service.PsWatchService;
-import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
@@ -17,8 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.UnsupportedEncodingException;
-import java.security.GeneralSecurityException;
 import java.sql.SQLException;
 import java.util.LinkedHashMap;
 
@@ -48,19 +42,6 @@ public class PsUserContoller {
         PsUser psUser = psUserService.selectPsUserById(id);
         return psUser;
     }
-    //2017年11月14日注释，此处原本作为为处理登录过程，设置登录后需跳入controller的过程，但目前暂不需要设置该过程
-//    @RequestMapping(value = "/initUser", method = RequestMethod.GET)
-//    public String initialUserPage() {
-//        return "user_default";
-//    }
-
-    //    用户登录功能,根据userName查询PsUser,2017年11月14日注释：发现已经在security中定义拦截
-//    @RequestMapping(value = "/check", method = RequestMethod.GET)
-//    @ResponseBody
-//    public PsUser selectPsUserByName(String userName) {
-//        PsUser psUser = psUserService.selectPsUserByName(userName);
-//        return psUser;
-//    }
 
     /**
      * 用户登录功能，显示用户信息，此处实际属于登陆状态的一个判断，如果没找到，则提醒需要登录
@@ -73,21 +54,6 @@ public class PsUserContoller {
         PsUser psUser = psUserService.selectPsUserByName(authentication.getName());
         return psUser;
     }
-    //用户退出功能,已在security中配置了，所以不用
-//    @RequestMapping(value="/logout", method = RequestMethod.GET)
-//    public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
-//        /**
-//        *用户退出功能，验证授权是否存在
-//        *@param [request, response]
-//        *@return java.lang.String
-//        *@date 2017/10/23
-//        */
-//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-//        if (auth != null){
-//            new SecurityContextLogoutHandler().logout(request, response, auth);
-//        }
-//        return "redirect:/templates/photoshoot_default.html";
-//    }
 
     /**
      * 登录后,显示用户粉丝数量
@@ -163,14 +129,10 @@ public class PsUserContoller {
      * @param email
      * @param username
      * @return
-     * @throws MessagingException
-     * @throws GeneralSecurityException
-     * @throws javax.mail.MessagingException
-     * @throws UnsupportedEncodingException
      */
     @PostMapping(value = "/sendEmailCode")
     @ResponseBody
-    public String sendEmailCode(@RequestParam("email") String email, @RequestParam("username") String username) throws MessagingException, GeneralSecurityException, javax.mail.MessagingException, UnsupportedEncodingException {
+    public String sendEmailCode(@RequestParam("email") String email, @RequestParam("username") String username) {
         //判断从页面传来的邮箱是否和数据库的匹配
         PsUser psUser = psUserService.selectPsByUserNameEmail(username);
         if (psUser.getUserEmail().equals(email)) {
