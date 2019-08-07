@@ -178,7 +178,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         SecurityContextLogoutHandler securityContextLogoutHandler = new SecurityContextLogoutHandler();
         securityContextLogoutHandler.setInvalidateHttpSession(true); //HttpSession将从当前删除
         securityContextLogoutHandler.setClearAuthentication(true); //Authentication将从当前删除
-        CookieClearingLogoutHandler cookieClearingLogoutHandler = new CookieClearingLogoutHandler("JSESSIONID");//此处调试前端时发现是这个名称，但不知道能否修改该名称，
+        CookieClearingLogoutHandler cookieClearingLogoutHandler = new CookieClearingLogoutHandler("JSESSIONID");
         LogoutFilter filter = new LogoutFilter(SSO_URL + "/templates/photoshoot_default.html", securityContextLogoutHandler, cookieClearingLogoutHandler);
         filter.setFilterProcessesUrl("/PsUserController/logout");
         return filter;
