@@ -1,13 +1,13 @@
 package com.intrantes.controller;
 
 import com.intrantes.utils.SendEmailUtils;
-import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
@@ -30,7 +30,7 @@ public class PsContactController {
 
     @RequestMapping(value = "/contact", method = RequestMethod.POST)
     @ResponseBody
-    public String recordSuggestion(HttpServletRequest request, @RequestParam LinkedHashMap<String, Object> suggesionJson) throws MessagingException, GeneralSecurityException, javax.mail.MessagingException, UnsupportedEncodingException {
+    public String recordSuggestion(HttpServletRequest request, @RequestParam LinkedHashMap<String, Object> suggesionJson) throws GeneralSecurityException, UnsupportedEncodingException, MessagingException {
         /**
          *接收意见及发送人的信息，写入PsSuggestion文件relation.txt下
          *@param [request, suggesionJson]
