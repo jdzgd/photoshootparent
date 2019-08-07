@@ -12,6 +12,7 @@
         <module>web</module>
         <module>entity</module>
         <module>utils</module>
+        <module>photoshoot-expand</module>
     </modules>
     <packaging>pom</packaging>
 
