@@ -9,7 +9,7 @@
     <modules>
         <module>service</module>
         <module>dao</module>
-        <module>web</module>
+        <module>photoshoot-web</module>
         <module>entity</module>
         <module>utils</module>
         <module>photoshoot-expand</module>
@@ -171,17 +171,17 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
-        <resources>
-            <resource>
-                <directory>src/main/resources.${deploy.type}</directory>
-                <excludes>
-                    <exclude>*.jsp</exclude>
-                </excludes>
-            </resource>
-            <resource>
-                <directory>src/main/resources</directory>
-            </resource>
-        </resources>
+<!--        <resources>-->
+<!--            <resource>-->
+<!--                <directory>src/main/resources.${deploy.type}</directory>-->
+<!--                <excludes>-->
+<!--                    <exclude>*.jsp</exclude>-->
+<!--                </excludes>-->
+<!--            </resource>-->
+<!--            <resource>-->
+<!--                <directory>src/main/resources</directory>-->
+<!--            </resource>-->
+<!--        </resources>-->
     </build>
     <profiles>
         <profile>

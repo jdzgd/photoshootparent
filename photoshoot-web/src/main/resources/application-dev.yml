@@ -1,18 +1,30 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:38761/eureka/
 # db config
-
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    driver-class-name: com.mysql.jdbc.Driver
-#    driver-class-name: com.alibaba.druid.proxy.DruidDriver
+#    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/photoshoot?useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true&useSSL=false
+#    url: jdbc:mysql://192.168.187.151:3306/photoshoot?useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true&useSSL=false
     username: root
     password: 123456
-# mvc配置
   mvc:
     view:
       prefix: /templates/
       suffix: .html
+  zipkin:
+    base-url:
+    sender:
+      type: web
+  sleuth:
+    sampler:
+      probability: 1.0
+  http:
+    converters:
+      preferred-json-mapper: fastjson
 # redis配置
 #  redis:
 #    jedis:
@@ -31,7 +43,7 @@ spring:
 # mybatis
 
 
-mybatis:
+mybatis-plus:
   mapper-locations: classpath:mappers/*.xml
 #  生成实体类的别名
   type-aliases-package: com.intrantes.entity
@@ -50,26 +62,32 @@ mybatis:
     use-generated-keys: true
 #    给予被嵌套的resultMap以字段-属性的映射支持 FULL,PARTIAL
     auto-mapping-behavior: partial
-#cas:
-# server:
-#   host:
-#    url: http://192.168.1.101/cas #cas服务地址
-#    login_url: /login #登录地址
-#    logout_url: /logout #注销地址
+
 
 #cas.server-url-prefix=http
-##CAS服务地址
-#cas.server.host.url=http://localhost:8081/cas
-##CAS服务登录地址
-#cas.server.host.login_url=${cas.server.host.url}/login
 ##CAS服务登出地址
 #cas.server.host.logout_url=${cas.server.host.url}/logout?service=${app.server.host.url}
-##应用访问地址
-#app.server.host.url=http://localhost:8080
-##应用登录地址
-#app.login.url=/login
-##应用登出地址
-#app.logout.url=/logout
+
+cas:
+ server:
+   host:
+    url: http://localhost:8081/cas #cas服务地址
+    login_url: ${cas.server.host.url}/login #登录地址
+    logout_url: ${cas.server.host.url}/logout #注销地址
+app:
+  server:
+    host:
+#      应用访问地址
+      url: http://localhost:8080
+  login:
+#    应用登录地址
+    url: /login
+  logout:
+#    应用登出地址
+    url: /logout
+
+
 
 logging:
-  config: classpath:log/log4j2_pro.xml
+  config: classpath:log/log4j2_dev.xml
+#debug: true

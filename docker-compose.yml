@@ -1,0 +1,8 @@
+version: "3"
+
+services:
+  zipkin:
+    image: openzipkin/zipkin:2.19.1
+    ports:
+    - 39411:9411
+    restart: always
