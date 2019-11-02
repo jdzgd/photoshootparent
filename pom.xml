@@ -15,6 +15,7 @@
         <module>photoshoot-expand</module>
         <module>photoshoot-sso</module>
         <module>photoshoot-gateway</module>
+        <module>photoshoot-eureka</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -39,8 +40,7 @@
         <mybatisplus.version>2.3</mybatisplus.version>
         <lombok.version>1.18.0</lombok.version>
         <hibernate-validator.version>6.0.11.Final</hibernate-validator.version>
-<!--        <spring.cloud.version>Greenwich.RELEASE</spring.cloud.version>-->
-        <spring.cloud.version>Dalston.SR3</spring.cloud.version>
+        <spring.cloud.version>Greenwich.SR3</spring.cloud.version>
     </properties>
 
 

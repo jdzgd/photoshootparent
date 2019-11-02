@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: photoshoot-eureka
+server:
+  port: 38761
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+    register-with-eureka: false
+#    是否要注册到其他eureka server实例
+    fetch-registry: false
+    eureka-service-url-poll-interval-seconds: 60
+
