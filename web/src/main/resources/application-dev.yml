@@ -1,11 +1,14 @@
-
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:38761/eureka/
 # db config
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    driver-class-name: com.mysql.jdbc.Driver
-#    driver-class-name: com.alibaba.druid.proxy.DruidDriver
+#    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/photoshoot?useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true&useSSL=false
+#    url: jdbc:mysql://192.168.187.151:3306/photoshoot?useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true&useSSL=false
     username: root
     password: 123456
 # mvc配置
@@ -81,4 +84,4 @@ app:
 
 logging:
   config: classpath:log/log4j2_dev.xml
-debug: true
+#debug: true

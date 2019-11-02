@@ -8,8 +8,8 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 
@@ -21,6 +21,7 @@ import java.util.List;
  * @description
  * @date 2018/3/30
  **/
+@EnableDiscoveryClient
 @MapperScan("com.intrantes.dao")
 @SpringBootApplication()
 public class PhotoshootApplication {
