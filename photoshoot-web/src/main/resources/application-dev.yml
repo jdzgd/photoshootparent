@@ -16,7 +16,7 @@ spring:
       prefix: /templates/
       suffix: .html
   zipkin:
-    base-url:
+    base-url: http://localhost:39411/
     sender:
       type: web
   sleuth:

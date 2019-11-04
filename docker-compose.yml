@@ -1,8 +1,46 @@
 version: "3"
 
 services:
+  elasticsearch:
+    image: "docker.elastic.co/elasticsearch/elasticsearch:${ELK_VERSION}"
+    container_name: photoshoot-elasticsearch
+    volumes:
+      - ./elasticsearch/logs/:/usr/share/logs/
+      - ./elasticsearch/data:/usr/share/elasticsearch/data
+      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+    ports:
+      - "39200:9200"
+      - "39300:9300"
+    environment:
+      TZ: Asia/Shanghai
+      ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+
+#  相关参考配置文件
+#  https://github.com/openzipkin/zipkin/blob/master/zipkin-server/README.md
   zipkin:
     image: openzipkin/zipkin:2.19.1
+    container_name: photoshoot-zipkin
     ports:
     - 39411:9411
     restart: always
+    environment:
+    - JAVA_OPTS=-Dlogging.level.zipkin=DEBUG -Dlogging.level.zipkin2=DEBUG
+    - STORAGE_TYPE=elasticsearch
+    - COLLECTOR_SAMPLE_RATE=1.0
+    - ES_HOSTS=http://elasticsearch:9200
+#    - STORAGE_THROTTLE_ENABLED=true
+#    - STORAGE_THROTTLE_MIN_CONCURRENCY=1
+#    - STORAGE_THROTTLE_MAX_CONCURRENCY=2
+#    - STORAGE_THROTTLE_MAX_QUEUE_SIZE=2
+    depends_on:
+      - elasticsearch
+  dependencies:
+    image: openzipkin/zipkin-dependencies:2.4.0
+    container_name: photoshoot-dependencies
+    entrypoint: crond -f
+    environment:
+      - STORAGE_TYPE=elasticsearch
+      - ES_HOSTS=http://elasticsearch:9200
+      - ZIPKIN_LOG_LEVEL=DEBUG
+    depends_on:
+      - elasticsearch
