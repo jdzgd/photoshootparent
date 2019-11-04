@@ -59,8 +59,7 @@ public class PsUserServiceImpl implements PsUserService {
 
     @Override
     public PsUser selectPsUserById(Integer id) {
-        PsUser psUser = psUserDao.selectPsUserById(id);
-        return psUser;
+        return psUserDao.selectPsUserById(id);
     }
 
     /**
@@ -75,8 +74,7 @@ public class PsUserServiceImpl implements PsUserService {
 
     @Override
     public PsUser selectPsCollectionByUserid(Integer userId) {
-        PsUser psUser = psUserDao.selectPsCollectionByUserid(userId);
-        return psUser;
+        return psUserDao.selectPsCollectionByUserid(userId);
     }
 
     /**
@@ -129,8 +127,7 @@ public class PsUserServiceImpl implements PsUserService {
      */
     @Override
     public PsUser selectPsByUserNameEmail(String username) {
-        PsUser psUser = psUserDao.selectPsUserByUserNameEmail(username);
-        return psUser;
+        return psUserDao.selectPsUserByUserNameEmail(username);
     }
 
     /**
@@ -138,8 +135,7 @@ public class PsUserServiceImpl implements PsUserService {
      */
     @Override
     public int updateUserPassword(PsUser psUser) {
-        int count = psUserDao.updateUserPassword(psUser);
-        return count;
+        return psUserDao.updateUserPassword(psUser);
     }
 
     /**

@@ -38,7 +38,7 @@
         <fastjson.version>1.2.47</fastjson.version>
         <mybatis-plus-boot-starter.version>2.3</mybatis-plus-boot-starter.version>
         <mybatisplus.version>2.3</mybatisplus.version>
-        <lombok.version>1.18.0</lombok.version>
+        <lombok.version>1.18.10</lombok.version>
         <hibernate-validator.version>6.0.11.Final</hibernate-validator.version>
         <spring.cloud.version>Greenwich.SR3</spring.cloud.version>
     </properties>
