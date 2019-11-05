@@ -1,7 +1,7 @@
 ### 模块端口汇总
 
 sso-8081  
-gateway-8001  
+gateway-38001  
 eureka-38761  
 
 #### docker端口汇总

@@ -89,7 +89,7 @@ import org.apache.logging.log4j.Logger;
             <AppenderRef ref="MyFile"/>
         </Logger>
         <!-- 为sql语句配置特殊的Log级别，方便调试 -->
-        <Logger name="com.intrantes.dao" level="${log.sql.level}" additivity="false">
+        <Logger name="com.intrantes.service.dao" level="${log.sql.level}" additivity="false">
             <AppenderRef ref="Console"/>
         </Logger>
 
