@@ -44,7 +44,7 @@
 
         <dependency>
             <groupId>com.intrantes</groupId>
-            <artifactId>utils</artifactId>
+            <artifactId>photoshoot-expand</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>

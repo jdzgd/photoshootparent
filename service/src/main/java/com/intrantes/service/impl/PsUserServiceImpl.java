@@ -2,8 +2,8 @@ package com.intrantes.service.impl;
 
 import com.intrantes.dao.PsUserDao;
 import com.intrantes.entity.PsUser;
+import com.intrantes.photoshoot.common.utils.SendEmailUtils;
 import com.intrantes.service.PsUserService;
-import com.intrantes.utils.SendEmailUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.security.authentication.AuthenticationManager;
@@ -19,7 +19,6 @@ import java.io.UnsupportedEncodingException;
 import java.security.GeneralSecurityException;
 import java.util.Random;
 
-//import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
 
 @Service
 public class PsUserServiceImpl implements PsUserService {

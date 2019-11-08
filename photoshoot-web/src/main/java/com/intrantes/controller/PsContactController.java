@@ -1,6 +1,6 @@
 package com.intrantes.controller;
 
-import com.intrantes.utils.SendEmailUtils;
+import com.intrantes.photoshoot.common.utils.SendEmailUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,7 +22,6 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-//import javax.mail.MessagingException;
 
 @Controller
 @RequestMapping(value = "/contact")

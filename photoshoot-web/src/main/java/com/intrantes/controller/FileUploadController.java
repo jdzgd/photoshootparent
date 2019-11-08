@@ -1,7 +1,7 @@
 package com.intrantes.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.intrantes.utils.ImgUtils;
+import com.intrantes.photoshoot.common.utils.ImgUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -97,7 +97,7 @@ public class FileUploadController {
 
         String imgPath = realPath + path;
         System.out.println(imgPath);
-        String newPicPath=ImgUtils.imgCrop(imgPath, (int) x, (int) y, (int) width, (int) height);
+        String newPicPath= ImgUtils.imgCrop(imgPath, (int) x, (int) y, (int) width, (int) height);
 int index = newPicPath.lastIndexOf('\\');
         String dbImgPath = newPicPath.substring(index+1);
         System.out.println(newPicPath);
