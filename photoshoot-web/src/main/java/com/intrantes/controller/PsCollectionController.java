@@ -8,6 +8,7 @@ import com.intrantes.entity.PsLike;
 import com.intrantes.service.PsCollectionService;
 import com.intrantes.service.PsLikeService;
 import com.intrantes.service.PsUserService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping(value = "/collection")
+@Slf4j
 public class PsCollectionController {
     static Logger logger = LogManager.getLogger(PsCollectionController.class);
 
@@ -41,7 +43,6 @@ public class PsCollectionController {
      *@return int
      *Date 2017/10/25
      */
-    //    此处为获取当前用户id的方法
     protected Integer getCurrentPsUserId() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return psUserService.selectPsUserUserIdByName(authentication.getName());
@@ -91,11 +92,9 @@ public class PsCollectionController {
      *@return java.util.List<com.instrantes.pojo.PsCollection>
      *Date 2017/11/13
      */
-    //查询个人所有作品信息。此处用了json，因为前端传入的是Json字符串
     @RequestMapping(value = "/personCollection", method = RequestMethod.POST)
     @ResponseBody
-    public List<PsCollection> selectCollectionInfoByUserId() { // 该方法不能用Integer接收
-
+    public List<PsCollection> selectCollectionInfoByUserId() {
         return psCollectionService.selectCollectionInfoByUserId(psUserService.getCurrentPsUserId());
     }
     //查询其他人所有作品信息。此处用了json，因为前端传入的是Json字符串，类似上面那个方法

@@ -8,10 +8,8 @@
     <version>0.0.1-SNAPSHOT</version>
     <modules>
         <module>service</module>
-        <module>dao</module>
         <module>photoshoot-web</module>
         <module>entity</module>
-        <module>utils</module>
         <module>photoshoot-expand</module>
         <module>photoshoot-sso</module>
         <module>photoshoot-gateway</module>
@@ -55,18 +53,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-logging</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
-        <!-- 引入log4j2支持 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-log4j2</artifactId>
-        </dependency>
+<!--        &lt;!&ndash; 引入log4j2支持 &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-log4j2</artifactId>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>org.slf4j</groupId>

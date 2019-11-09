@@ -85,6 +85,16 @@
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
+
+        <!-- logback dependency -->
+        <dependency>
+            <groupId>org.codehaus.janino</groupId>
+            <artifactId>janino</artifactId>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.codehaus.janino</groupId>-->
+<!--            <artifactId>commons-compiler</artifactId>-->
+<!--        </dependency>-->
     </dependencies>
 
 
