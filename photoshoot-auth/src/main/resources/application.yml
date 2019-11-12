@@ -1,0 +1,14 @@
+server:
+  port: 38002
+  servlet:
+    contextPath: /uaa #web基路径
+
+spring:
+  application:
+    name: photoshoot-auth
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.host:localhost}:${eureka.port:38761}/eureka/
+

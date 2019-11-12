@@ -48,7 +48,12 @@ public class PsCollectionController {
         return psUserService.selectPsUserUserIdByName(authentication.getName());
     }
 
-    //根据用户id查询作品的详情
+    /**
+    * 根据用户id查询作品的详情
+    * <br/>
+    * @param id
+    * @return java.util.List<com.intrantes.entity.PsCollection>
+    */
     @RequestMapping(value = "/userCollections", method = RequestMethod.POST)
     @ResponseBody
     public List<PsCollection> selectPsCollectionByUserId(Integer id) {
@@ -95,23 +100,9 @@ public class PsCollectionController {
     @RequestMapping(value = "/personCollection", method = RequestMethod.POST)
     @ResponseBody
     public List<PsCollection> selectCollectionInfoByUserId() {
-        return psCollectionService.selectCollectionInfoByUserId(psUserService.getCurrentPsUserId());
+        List<PsCollection> psCollections = psCollectionService.selectCollectionInfoByUserId(psUserService.getCurrentPsUserId());
+        return psCollections;
     }
-    //查询其他人所有作品信息。此处用了json，因为前端传入的是Json字符串，类似上面那个方法
-//    @RequestMapping(value = "/personCollection", method = RequestMethod.POST)
-//    @ResponseBody
-//    public List<PsCollection> selectCollectionInfoByUserId(@RequestBody String userId) { // 该方法不能用Integer接收
-//        /**
-//         *根据用户的ID，获取个人用户的所有作品
-//         *@param [userId]
-//         *@return java.util.List<com.instrantes.pojo.PsCollection>
-//         *@date 2017/10/21
-//         */
-//        JSONObject array = JSONObject.parseObject(userId);
-//        System.out.println("----------------id:" + array.getInteger("userId"));
-//        return psCollectionService.selectCollectionInfoByUserId(array.getInteger("userId"));
-//    }
-
 
     /**单个作品信息*/
     @FastJsonView(exclude = {@FastJsonFilter(clazz=PsCollection.class,props = {"collectionAdress","collectionCreatetime"})})
@@ -123,7 +114,7 @@ public class PsCollectionController {
         psCollection.setPsUser(psUserService.selectPsUserGeneralInformationById(psUserId));
         try{
         psCollection.setPsLike( psLikeService.selectStatus(collectionId,psUserId));
-            System.out.println("------------------------------------------"+psCollection.getPsLike().getLikeStatus());
+            log.info("------------------------------------------{}",psCollection.getPsLike().getLikeStatus());
         } catch (Exception e){
             PsLike psLike=new PsLike();
             psLike.setLikeStatus(0);

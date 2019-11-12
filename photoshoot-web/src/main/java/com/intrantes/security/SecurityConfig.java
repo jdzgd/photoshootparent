@@ -37,7 +37,6 @@ import javax.annotation.Resource;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-//@ImportResource({"classpath:spring/photoshoot-servlet.xml", "classpath:spring/applicationContext.xml", "classpath:spring/applicationContext-MyBatis.xml"})
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     /**
      * CAS单点登录服务地址
@@ -223,10 +222,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
     @Autowired
-    public void configAuthentication(AuthenticationManagerBuilder auth)
-            throws Exception {
+    public void configAuthentication(AuthenticationManagerBuilder auth) {
         auth.authenticationProvider(daoAuthenticationProvider());
-//        auth.userDetailsService(userDetailsService);      //去掉该处，已用自定义的daoAuthenticationProvider
     }
 
     //Override method authenticationManagerBean in WebSecurityConfigurerAdapter

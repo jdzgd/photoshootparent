@@ -1,12 +1,45 @@
 server:
   port: 38001
+spring:
+  application:
+    name: photoshoot-gateway
 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:38761/eureka/
 zuul:
-  sensitiveHeaders: Cookie,Set-Cookie
   routes:
-    spring-security-oauth-resource:
-      path: /spring-security-oauth-resource/**
-      url: http://localhost:8082/spring-security-oauth-resource
-    oauth:
-      path: /oauth/**
-      url: http://localhost:8080/spring-security-oauth-server/oauth
+    startpage:
+      path: /photoshoot/**
+      url: http://localhost:8080/templates/photoshoot_default.html
+    resource:
+      path: /js/**
+      url: http://localhost:8080/js/
+    resource2:
+      path: /img/**
+      url: http://localhost:8080/img/
+    photoshoot-auth:
+      path: /photoshoot-auth/**
+      url: http://localhost:38002/uaa/login
+
+#zuul:
+#  prefix: /api # 设置一个公共的前缀
+#  sensitiveHeaders: Cookie,Set-Cookie
+#  routes:
+#    spring-security-oauth-resource:
+#      path: /spring-security-oauth-resource/**
+#      url: http://localhost:8082/spring-security-oauth-resource
+#    oauth2:
+#      path: /oauth/**
+#      url: http://localhost:8080/spring-security-oauth-server/oauth
+security:
+  oauth2:
+    client:
+      access-token-uri: http://localhost:38002/uaa/oauth/token #令牌端点
+      user-authorization-uri: http://localhost:38002/uaa/oauth/authorize #授权端点
+      client-id: zuul_server #OAuth2客户端ID
+      client-secret: secret #OAuth2客户端密钥
+    resource:
+      jwt:
+        key-value: springcloud123 #使用对称加密方式，默认算法为HS256

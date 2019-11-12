@@ -1,23 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
-    <groupId>com.intrantes</groupId>
-    <artifactId>photoshoot</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <modules>
-        <module>service</module>
-        <module>photoshoot-web</module>
-        <module>entity</module>
-        <module>photoshoot-expand</module>
-        <module>photoshoot-sso</module>
-        <module>photoshoot-gateway</module>
-        <module>photoshoot-eureka</module>
-    </modules>
-    <packaging>pom</packaging>
-
-    <name>photoshoot</name>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -25,6 +8,27 @@
         <version>2.1.7.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.intrantes</groupId>
+    <artifactId>photoshoot</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>photoshoot</name>
+
+    <modules>
+        <module>service</module>
+        <module>photoshoot-web</module>
+        <module>photoshoot-ui</module>
+        <module>photoshoot-auth</module>
+        <module>entity</module>
+        <module>photoshoot-expand</module>
+        <module>photoshoot-sso</module>
+        <module>photoshoot-gateway</module>
+        <module>photoshoot-eureka</module>
+    </modules>
+
+
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -54,11 +58,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
-<!--        &lt;!&ndash; 引入log4j2支持 &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-log4j2</artifactId>-->
-<!--        </dependency>-->
 
         <dependency>
             <groupId>org.slf4j</groupId>

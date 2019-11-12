@@ -24,7 +24,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
     private PsUserDao psUserDao;
-    //    private PsUserService psUserService;
     @Autowired
     private PsRoleDao psRoleDao;
 
@@ -43,13 +42,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         System.out.println("authorities:" + authorities);
 
         return new User(psUser.getUserName(), psUser.getUserPassword(), authorities);
-//                psUser.getUserIsDelete().equals("N"), true, true, true, authorities);
-
-//
-
-//        org.springframework.security.core.userdetails.User authUser = new
-//                org.springframework.security.core.userdetails.User(psUser.getUserName(),psUser.getUserPassword(),psUser.getUserRole());
-//        return authUser;
     }
 
     private List<PsRole> getGrantedAuthorities(PsRole psRole) {

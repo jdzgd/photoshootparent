@@ -8,9 +8,9 @@
         <result column="PsCollection4" property="collectionPhotoname"/>
     </resultMap>
     <resultMap id="userCollectionResultMap" type="PsCollection">
-        <id column="PsCollection0" property="collectionId"/>
-        <result column="PsCollection3" property="collectionPhotoLocation"/>
-        <result column="PsCollection4" property="collectionPhotoname"/>
+        <id column="collection_id" property="collectionId"/>
+        <result column="collection_photo_location" property="collectionPhotoLocation"/>
+        <result column="collection_photoname" property="collectionPhotoname"/>
         <result column="ps_username" property="userName" />
     </resultMap>
     <!--<resultMap id="collectionResultMap" type="PsCollection">-->
