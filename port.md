@@ -3,6 +3,7 @@
 sso-8081  
 gateway-38001  
 ui-38009  
+resource-38010  
 eureka-38761  
 
 #### docker端口汇总

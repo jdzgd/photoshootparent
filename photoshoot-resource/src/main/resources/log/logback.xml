@@ -2,7 +2,7 @@
 <configuration scan="false">
      
     <property name="LOG_HOME" value="/Users/lime/Documents/devPoject/photoshoot/logs" />
-    <property name="MODULENAME" value="photoshoot-ui"/>
+    <property name="MODULENAME" value="photoshoot-resource"/>
     <property name="CONSOLE_LOG_PATTERN"
               value="%d{yyyy-MM-dd HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger - %msg%n" />
     <property name="LOG_PATTERN"
