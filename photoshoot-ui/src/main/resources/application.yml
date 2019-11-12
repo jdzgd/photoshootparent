@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: photoshoot-ui
+server:
+  port: 38009
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:38761/eureka/
