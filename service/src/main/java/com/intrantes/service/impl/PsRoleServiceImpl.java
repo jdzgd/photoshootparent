@@ -1,6 +1,6 @@
 package com.intrantes.service.impl;
+import com.instrantes.photoshoot.entity.PsRole;
 import com.intrantes.dao.PsRoleDao;
-import com.intrantes.entity.PsRole;
 import com.intrantes.service.PsRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

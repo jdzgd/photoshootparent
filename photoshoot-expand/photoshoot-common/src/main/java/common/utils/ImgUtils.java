@@ -1,4 +1,4 @@
-package com.intrantes.photoshoot.common.utils;
+package common.utils;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

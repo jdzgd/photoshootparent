@@ -1,6 +1,7 @@
 package com.intrantes.service;
 
-import com.intrantes.entity.PsComment;
+
+import com.instrantes.photoshoot.entity.PsComment;
 
 import java.util.List;
 

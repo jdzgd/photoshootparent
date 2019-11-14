@@ -1,4 +1,4 @@
-package com.intrantes.entity;
+package com.instrantes.photoshoot.entity;
 
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;

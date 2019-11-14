@@ -1,5 +1,6 @@
 package com.intrantes.service;
-import com.intrantes.entity.PsCollection;
+
+import com.instrantes.photoshoot.entity.PsCollection;
 
 import java.util.ArrayList;
 import java.util.HashMap;

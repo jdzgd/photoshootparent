@@ -1,4 +1,4 @@
-package com.intrantes.photoshoot.common.exception;
+package common.exception;
 
 
 import com.alibaba.fastjson.JSON;

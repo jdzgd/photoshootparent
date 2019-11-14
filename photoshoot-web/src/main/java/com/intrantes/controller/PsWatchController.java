@@ -1,6 +1,6 @@
 package com.intrantes.controller;
 
-import com.intrantes.entity.PsWatch;
+import com.instrantes.photoshoot.entity.PsWatch;
 import com.intrantes.service.PsWatchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

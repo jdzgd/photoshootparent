@@ -1,7 +1,5 @@
-package com.intrantes.photoshoot.common.exception;
+package common.exception;
 
-
-import com.intrantes.photoshoot.common.exception.ReturnCode;
 
 /**
  * 用户信息异常

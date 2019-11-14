@@ -1,6 +1,7 @@
 package com.intrantes.service;
 
-import com.intrantes.entity.PsUser;
+
+import com.instrantes.photoshoot.entity.PsUser;
 
 import javax.servlet.http.HttpServletRequest;
 

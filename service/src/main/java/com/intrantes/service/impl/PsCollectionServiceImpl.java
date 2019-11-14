@@ -1,7 +1,7 @@
 package com.intrantes.service.impl;
 
+import com.instrantes.photoshoot.entity.PsCollection;
 import com.intrantes.dao.PsCollectionDao;
-import com.intrantes.entity.PsCollection;
 import com.intrantes.service.PsCollectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;

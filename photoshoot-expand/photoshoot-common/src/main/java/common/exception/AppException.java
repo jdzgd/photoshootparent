@@ -1,4 +1,4 @@
-package com.intrantes.photoshoot.common.exception;
+package common.exception;
 
 /**
  * 自定义异常类

@@ -109,12 +109,12 @@
     <!--</select> -->
 
 
-    <!--<insert id="insertPsWatch" parameterType="com.entity.PsWatch">-->
+    <!--<insert id="insertPsWatch" parameterType="com.PsWatch">-->
     <!--insert into ps_watch(watch_userid,watch_fansid) -->
     <!--values(#{watchUserid},#{watchFansid})-->
     <!--</insert>-->
 
-    <!--<insert id="insertNonEmptyPsWatch" parameterType="com.entity.PsWatch">-->
+    <!--<insert id="insertNonEmptyPsWatch" parameterType="com.PsWatch">-->
     <!--insert into ps_watch-->
     <!--<trim prefix="(" suffix=")" suffixOverrides=",">-->
     <!--<if test="watchUserid != null">watch_userid,</if>-->

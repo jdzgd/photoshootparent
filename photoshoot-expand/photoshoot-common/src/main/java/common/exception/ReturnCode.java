@@ -1,4 +1,4 @@
-package com.intrantes.photoshoot.common.exception;
+package common.exception;
 
 /**
  * Created by Lime on 2017/11/10

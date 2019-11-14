@@ -1,8 +1,8 @@
 package com.intrantes.controller;
 
 
-import com.intrantes.entity.PsUser;
-import com.intrantes.entity.PsWatch;
+import com.instrantes.photoshoot.entity.PsUser;
+import com.instrantes.photoshoot.entity.PsWatch;
 import com.intrantes.service.PsUserService;
 import com.intrantes.service.PsWatchService;
 import org.springframework.beans.factory.annotation.Autowired;

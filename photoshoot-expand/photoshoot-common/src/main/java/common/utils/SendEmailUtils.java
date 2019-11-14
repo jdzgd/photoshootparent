@@ -1,4 +1,4 @@
-package com.intrantes.photoshoot.common.utils;
+package common.utils;
 
 
 import com.sun.mail.util.MailSSLSocketFactory;
@@ -25,7 +25,7 @@ public class SendEmailUtils {
      * @throws javax.mail.MessagingException
      */
 
-    private String SENDEMAIL_USER = "627756022@qq.com";
+    private String SENDEMAIL_USER = "test@qq.com";
     private String SENDEMAIL_PASSWORD = "tmvkqwamvmfobchg";
     private String EMIAL_HOST = "smtp.qq.com";
     private String EMIAL_CHARSET = "UTF-8";

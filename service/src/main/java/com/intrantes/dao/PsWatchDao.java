@@ -1,6 +1,6 @@
 package com.intrantes.dao;
 
-import com.intrantes.entity.PsWatch;
+import com.instrantes.photoshoot.entity.PsWatch;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
