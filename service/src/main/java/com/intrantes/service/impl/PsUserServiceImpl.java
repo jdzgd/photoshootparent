@@ -1,8 +1,8 @@
 package com.intrantes.service.impl;
 
+import com.instrantes.photoshoot.entity.PsUser;
 import com.intrantes.dao.PsUserDao;
-import com.intrantes.entity.PsUser;
-import com.intrantes.photoshoot.common.utils.SendEmailUtils;
+import common.utils.SendEmailUtils;
 import com.intrantes.service.PsUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 

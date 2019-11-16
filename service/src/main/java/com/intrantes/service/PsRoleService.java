@@ -1,5 +1,6 @@
 package com.intrantes.service;
-import com.intrantes.entity.PsRole;
+
+import com.instrantes.photoshoot.entity.PsRole;
 
 import java.util.List;
 

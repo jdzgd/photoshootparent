@@ -3,8 +3,8 @@ package com.intrantes.controller;
 
 import com.alibaba.fastjson.support.spring.annotation.FastJsonFilter;
 import com.alibaba.fastjson.support.spring.annotation.FastJsonView;
-import com.intrantes.entity.PsCollection;
-import com.intrantes.entity.PsLike;
+import com.instrantes.photoshoot.entity.PsCollection;
+import com.instrantes.photoshoot.entity.PsLike;
 import com.intrantes.service.PsCollectionService;
 import com.intrantes.service.PsLikeService;
 import com.intrantes.service.PsUserService;

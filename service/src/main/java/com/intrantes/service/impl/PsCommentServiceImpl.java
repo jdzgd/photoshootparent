@@ -1,12 +1,13 @@
 package com.intrantes.service.impl;
 
+import com.instrantes.photoshoot.entity.PsComment;
 import com.intrantes.dao.PsCommentDao;
-import com.intrantes.entity.PsComment;
 import com.intrantes.service.PsCommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 
 @Service
 public class PsCommentServiceImpl implements PsCommentService {

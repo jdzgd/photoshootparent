@@ -175,12 +175,12 @@
     <!--</select> -->
 
 
-    <!--<insert id="insertPsCollection" parameterType="com.entity.PsCollection">-->
+    <!--<insert id="insertPsCollection" parameterType="com.PsCollection">-->
     <!--insert into ps_collection(collection_id,collection_userid,collection_tagid,collection_photo_location,collection_photoname,collection_photointroduction,collection_price,collection_photoinformation,collection_adress,collection_flag,collection_createtime,collection_updatetime) -->
     <!--values(#{collectionId},#{collectionUserid},#{collectionTagid},#{collectionPhotoLocation},#{collectionPhotoname},#{collectionPhotointroduction},#{collectionPrice},#{collectionPhotoinformation},#{collectionAdress},#{collectionFlag},#{collectionCreatetime},#{collectionUpdatetime})-->
     <!--</insert>-->
 
-    <!--<insert id="insertNonEmptyPsCollection" parameterType="com.entity.PsCollection">-->
+    <!--<insert id="insertNonEmptyPsCollection" parameterType="com.PsCollection">-->
     <!--insert into ps_collection-->
     <!--<trim prefix="(" suffix=")" suffixOverrides=",">-->
     <!--<if test="collectionId != null">collection_id,</if>-->
@@ -217,7 +217,7 @@
     <!--where collection_id = #{id}-->
     <!--</delete>-->
 
-    <!--<update id="updatePsCollectionById" parameterType="com.entity.PsCollection">-->
+    <!--<update id="updatePsCollectionById" parameterType="com.PsCollection">-->
     <!--update ps_collection set-->
     <!--collection_userid=#{collectionUserid}-->
     <!--,collection_tagid=#{collectionTagid}-->
@@ -233,7 +233,7 @@
     <!--where collection_id=#{collectionId}-->
     <!--</update>-->
 
-    <!--<update id="updateNonEmptyPsCollectionById" parameterType="com.entity.PsCollection">-->
+    <!--<update id="updateNonEmptyPsCollectionById" parameterType="com.PsCollection">-->
     <!--update ps_collection-->
     <!--<set>-->
     <!--<if test="collectionUserid != null">-->

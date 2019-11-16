@@ -20,13 +20,7 @@
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
 
-        <!--dao-->
-        <dependency>
-            <groupId>com.intrantes</groupId>
-            <artifactId>entity</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
+
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
@@ -40,11 +34,15 @@
             <artifactId>mybatis-plus</artifactId>
         </dependency>
 
-
-
         <dependency>
             <groupId>com.intrantes</groupId>
-            <artifactId>photoshoot-expand</artifactId>
+            <artifactId>photoshoot-entity</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.intrantes</groupId>
+            <artifactId>photoshoot-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>

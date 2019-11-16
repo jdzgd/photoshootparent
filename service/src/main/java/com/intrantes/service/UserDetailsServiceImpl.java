@@ -1,9 +1,9 @@
 package com.intrantes.service;
 
+import com.instrantes.photoshoot.entity.PsRole;
+import com.instrantes.photoshoot.entity.PsUser;
 import com.intrantes.dao.PsRoleDao;
 import com.intrantes.dao.PsUserDao;
-import com.intrantes.entity.PsRole;
-import com.intrantes.entity.PsUser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

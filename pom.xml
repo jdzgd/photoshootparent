@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.intrantes</groupId>
+    <artifactId>photoshoot</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <modules>
+        <module>service</module>
+        <module>photoshoot-web</module>
+        <module>photoshoot-expand</module>
+        <module>photoshoot-sso</module>
+        <module>photoshoot-gateway</module>
+        <module>photoshoot-eureka</module>
+    </modules>
+    <packaging>pom</packaging>
+
+    <name>photoshoot</name>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -9,32 +25,11 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.intrantes</groupId>
-    <artifactId>photoshoot</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    <name>photoshoot</name>
-
-    <modules>
-        <module>service</module>
-        <module>photoshoot-web</module>
-        <module>photoshoot-ui</module>
-        <module>photoshoot-auth</module>
-        <module>entity</module>
-        <module>photoshoot-expand</module>
-        <module>photoshoot-sso</module>
-        <module>photoshoot-gateway</module>
-        <module>photoshoot-eureka</module>
-    </modules>
-
-
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <jdk.version>1.8</jdk.version>
-        <druid.version>1.1.19</druid.version>
+        <druid.version>1.1.21</druid.version>
         <javax.mail.version>1.4.7</javax.mail.version>
         <commons-fileupload.version>1.3.3</commons-fileupload.version>
         <fastjson.version>1.2.47</fastjson.version>
@@ -47,17 +42,12 @@
 
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        
-        <!--日志配置-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
+
+<!--        &lt;!&ndash; 引入log4j2支持 &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-log4j2</artifactId>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -87,6 +77,18 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <scope>test</scope>
+                <version>2.1.7.RELEASE</version>
+            </dependency>
+
+            <!--日志配置-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+            </dependency>
             <!--spring cloud-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -156,23 +158,15 @@
     </dependencyManagement>
 
     <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-<!--        <resources>-->
-<!--            <resource>-->
-<!--                <directory>src/main/resources.${deploy.type}</directory>-->
-<!--                <excludes>-->
-<!--                    <exclude>*.jsp</exclude>-->
-<!--                </excludes>-->
-<!--            </resource>-->
-<!--            <resource>-->
-<!--                <directory>src/main/resources</directory>-->
-<!--            </resource>-->
-<!--        </resources>-->
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
     </build>
     <profiles>
         <profile>

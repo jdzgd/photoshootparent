@@ -1,8 +1,8 @@
 package com.intrantes.service.impl;
 
+import com.instrantes.photoshoot.entity.PsWatch;
 import com.intrantes.dao.PsWatchDao;
 
-import com.intrantes.entity.PsWatch;
 import com.intrantes.service.PsWatchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

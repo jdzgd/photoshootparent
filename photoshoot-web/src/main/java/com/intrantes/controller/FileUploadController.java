@@ -1,7 +1,7 @@
 package com.intrantes.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.intrantes.photoshoot.common.utils.ImgUtils;
+import common.utils.ImgUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

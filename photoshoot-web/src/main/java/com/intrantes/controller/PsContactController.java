@@ -1,6 +1,6 @@
 package com.intrantes.controller;
 
-import com.intrantes.photoshoot.common.utils.SendEmailUtils;
+import common.utils.SendEmailUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

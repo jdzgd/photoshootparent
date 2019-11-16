@@ -1,7 +1,7 @@
 package com.intrantes.service.impl;
 
+import com.instrantes.photoshoot.entity.PsLike;
 import com.intrantes.dao.PsLikeDao;
-import com.intrantes.entity.PsLike;
 import com.intrantes.service.PsLikeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;

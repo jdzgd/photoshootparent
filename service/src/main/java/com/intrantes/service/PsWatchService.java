@@ -1,5 +1,6 @@
 package com.intrantes.service;
-import com.intrantes.entity.PsWatch;
+
+import com.instrantes.photoshoot.entity.PsWatch;
 
 import java.util.List;
 

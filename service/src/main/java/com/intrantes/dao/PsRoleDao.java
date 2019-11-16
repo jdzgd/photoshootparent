@@ -1,7 +1,7 @@
 package com.intrantes.dao;
 
 
-import com.intrantes.entity.PsRole;
+import com.instrantes.photoshoot.entity.PsRole;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

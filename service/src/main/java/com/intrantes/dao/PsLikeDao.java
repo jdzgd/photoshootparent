@@ -1,7 +1,7 @@
 package com.intrantes.dao;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
-import com.intrantes.entity.PsLike;
+import com.instrantes.photoshoot.entity.PsLike;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 

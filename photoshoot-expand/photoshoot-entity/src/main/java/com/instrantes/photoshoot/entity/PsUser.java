@@ -1,4 +1,4 @@
-package com.intrantes.entity;
+package com.instrantes.photoshoot.entity;
 
 
 import lombok.Data;

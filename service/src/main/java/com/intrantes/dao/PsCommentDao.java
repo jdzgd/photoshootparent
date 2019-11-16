@@ -1,5 +1,5 @@
 package com.intrantes.dao;
-import com.intrantes.entity.PsComment;
+import com.instrantes.photoshoot.entity.PsComment;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
