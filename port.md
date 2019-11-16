@@ -1,11 +1,15 @@
 ### 模块端口汇总
 
-sso-8081  
-gateway-38001  
-ui-38009  
-resource-38010  
-auth-38002  
-eureka-38761  
+8081-sso  
+38001-gateway  
+38009-ui  
+38010-resource  
+38002-auth  
+38761-eureka  
 
 #### docker端口汇总
-zipkin-39411:9411 w
+
+39411:9411-zipkin 
+39200:9200-elasticsearch
+39300:9300-elasticsearch
+39080:80-nginx

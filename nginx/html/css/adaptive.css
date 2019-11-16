@@ -1,0 +1,141 @@
+/* 主体布局 */
+.introduce {
+    display: flex;
+    width: 100vw;
+}
+/* 图片大小 */
+.videoImg{
+    width: 90%;
+    height: 80%;
+}
+/* 图片div大小 */
+.introduce .photo{
+    display: table;
+    width: 575px;
+    height: 100vh;
+    text-align: center;
+}
+/* 右边文本显示 */
+.introduce .sidebar {
+    display: table-cell;
+    flex-direction: column;
+    vertical-align: middle;
+    width: 60%;
+    height: 100vh;
+    margin-left: 20px;
+}
+
+.introduce .sidebar h1 {
+    font-size: 50px;
+    font-weight: normal;
+    color: #525558;
+    margin: 32px 10px 20px 10px;
+}
+
+.introduce .sidebar p {
+    line-height: 1.4em;
+    color: #525558;
+    font-size: 30px;
+    margin: 32px 20px 20px 10px;
+    padding: 10px;
+}
+/* 控件按钮 */
+.introduce .sidebar .btn {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.introduce .sidebar .btn .btnA {
+    height: 50px;
+    width: 200px;
+    margin: 20px;
+    background: #0099e5;
+    border: 2px solid #0099e5;
+    border-radius: 15px;
+    text-align: center;
+    line-height: 50px;
+    text-decoration: blink;
+    font-size: 20px;
+    color: #fff;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.introduce .sidebar .btn .btnA:hover {
+    border: 2px solid #0099e5;
+    box-shadow: 0 0 8px #0099e5;
+}
+/* 按钮图片设置 */
+.introduce .sidebar .btn .btnImg {
+    float: left;
+    height: 50px;
+    width: 45px;
+}
+
+/* 改变屏幕大小显示效果，媒体查询*/
+@media screen and (max-width: 1206px) {
+    .introduce {
+        display: flex;
+        flex-wrap: wrap-reverse;
+        width: 100vw;
+    }
+
+    .introduce .photo {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+    }
+
+    .introduce .sidebar {
+        display: flex;
+        width: 100%;
+        height: 20%;
+        margin: 0;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .introduce .sidebar h1 {
+        font-size: 40px;
+        font-weight: normal;
+        color: #525558;
+        text-align: center;
+        margin: 20px 0 20px 0;
+    }
+
+    .introduce .sidebar p {
+        line-height: 1.4em;
+        color: #525558;
+        font-size: 23px;
+        text-align: center;
+        margin: 32px 20px 20px 10px;
+    }
+    .introduce .sidebar .btn {
+        display: flex;
+        justify-content: center;
+    }
+
+    .introduce .sidebar .btn .btnA {
+        height: 50px;
+        width: 200px;
+        margin: 20px;
+        background: #0099e5;
+        border: 2px solid #0099e5;
+        border-radius: 15px;
+        text-align: center;
+        line-height: 50px;
+        text-decoration: blink;
+        font-size: 20px;
+        color: #fff;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    .introduce .sidebar .btn .btnA:hover {
+        border: 2px solid #0099e5;
+        box-shadow: 0 0 8px #0099e5;
+    }
+    .introduce .sidebar .btn .btnImg {
+        height: 100%;
+        width: 40px
+    }
+}

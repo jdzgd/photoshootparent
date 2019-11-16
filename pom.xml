@@ -13,6 +13,7 @@
         <module>photoshoot-sso</module>
         <module>photoshoot-gateway</module>
         <module>photoshoot-eureka</module>
+        <module>photoshoot-resource</module>
     </modules>
     <packaging>pom</packaging>
 

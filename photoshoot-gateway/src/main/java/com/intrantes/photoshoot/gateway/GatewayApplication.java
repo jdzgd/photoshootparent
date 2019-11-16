@@ -26,70 +26,70 @@ public class GatewayApplication {
         SpringApplication.run(GatewayApplication.class, args);
     }
 
-    @Configuration
-    @Order(SecurityProperties.DEFAULT_FILTER_ORDER)
-    protected static class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-
-        @Override
-        public void configure(WebSecurity web) throws Exception {
-            super.configure(web);
-            //        忽略任何以”/resources/”开头的请求
-            web.ignoring()
-                    .antMatchers("/resources/**");
-
-        }
-
-        @Override
-        protected void configure(HttpSecurity http) throws Exception {
-            http
-
-                    .authorizeRequests()
-                    //Allow access to all static resources without authentication
-
-                    .antMatchers("/","/photoshoot-auth/**","/photoshoot/**","/**/*.html","/**/*.jpg","/**/*.js")
-                    .permitAll()
-                    .antMatchers("/**")
-//                    .antMatchers("/","/**/*.html").permitAll()
-//                    .anyRequest()
-                    .authenticated()
-                    .and()
-                    .csrf()
-                    .disable();
-//                    .csrf().csrfTokenRepository(csrfTokenRepository())
+//    @Configuration
+//    @Order(SecurityProperties.DEFAULT_FILTER_ORDER)
+//    protected static class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+//
+//        @Override
+//        public void configure(WebSecurity web) throws Exception {
+//            super.configure(web);
+//            //        忽略任何以”/resources/”开头的请求
+//            web.ignoring()
+//                    .antMatchers("/resources/**");
+//
+//        }
+//
+//        @Override
+//        protected void configure(HttpSecurity http) throws Exception {
+//            http
+//
+//                    .authorizeRequests()
+//                    //Allow access to all static resources without authentication
+//
+//                    .antMatchers("/","/photoshoot-auth/**","/photoshoot/**","/**/*.html","/**/*.jpg","/**/*.js")
+//                    .permitAll()
+//                    .antMatchers("/**")
+////                    .antMatchers("/","/**/*.html").permitAll()
+////                    .anyRequest()
+//                    .authenticated()
 //                    .and()
-//                    .addFilterAfter(csrfHeaderFilter(), SessionManagementFilter.class);
-
-            //http.httpBasic().disable();
-        }
+//                    .csrf()
+//                    .disable();
+////                    .csrf().csrfTokenRepository(csrfTokenRepository())
+////                    .and()
+////                    .addFilterAfter(csrfHeaderFilter(), SessionManagementFilter.class);
 //
-//        private Filter csrfHeaderFilter() {
-//            return new OncePerRequestFilter() {
-//                @Override
-//                protected void doFilterInternal(HttpServletRequest request,
-//                                                HttpServletResponse response, FilterChain filterChain)
-//                        throws ServletException, IOException {
-//                    CsrfToken csrf = (CsrfToken) request.getAttribute(CsrfToken.class
-//                            .getName());
-//                    if (csrf != null) {
-//                        Cookie cookie = WebUtils.getCookie(request, "XSRF-TOKEN");
-//                        String token = csrf.getToken();
-//                        if (cookie == null || token != null && !token.equals(cookie.getValue())) {
-//                            cookie = new Cookie("XSRF-TOKEN", token);
-//                            cookie.setPath("/");
-//                            response.addCookie(cookie);
-//                        }
-//                    }
-//                    filterChain.doFilter(request, response);
-//                }
-//            };
+//            //http.httpBasic().disable();
 //        }
-//
-//        private CsrfTokenRepository csrfTokenRepository() {
-//            HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
-//            repository.setHeaderName("X-XSRF-TOKEN");
-//            return repository;
-//        }
-    }
+////
+////        private Filter csrfHeaderFilter() {
+////            return new OncePerRequestFilter() {
+////                @Override
+////                protected void doFilterInternal(HttpServletRequest request,
+////                                                HttpServletResponse response, FilterChain filterChain)
+////                        throws ServletException, IOException {
+////                    CsrfToken csrf = (CsrfToken) request.getAttribute(CsrfToken.class
+////                            .getName());
+////                    if (csrf != null) {
+////                        Cookie cookie = WebUtils.getCookie(request, "XSRF-TOKEN");
+////                        String token = csrf.getToken();
+////                        if (cookie == null || token != null && !token.equals(cookie.getValue())) {
+////                            cookie = new Cookie("XSRF-TOKEN", token);
+////                            cookie.setPath("/");
+////                            response.addCookie(cookie);
+////                        }
+////                    }
+////                    filterChain.doFilter(request, response);
+////                }
+////            };
+////        }
+////
+////        private CsrfTokenRepository csrfTokenRepository() {
+////            HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
+////            repository.setHeaderName("X-XSRF-TOKEN");
+////            return repository;
+////        }
+//    }
 
 
 
