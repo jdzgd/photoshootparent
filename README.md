@@ -1,13 +1,9 @@
-# photoshootparent
+Photoshoot
+=========================
+- Share a little bit of happiness in your life
 
-——Share a little bit of happiness in your life
+- Memory storage place
 
-——Memory storage place
-
-——Pick up the light
-
-
-|page                               |Description                                                                |
-|----------------------------------------|---------------------------------------------------------------------------|
+- Pick up the light
 
 

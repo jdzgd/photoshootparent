@@ -1,19 +1,25 @@
-.mymetadata
-.checkstyle
-.classpath
-.project
-.class
-.war
-.zip
-.rar
-.idea
-*.iml
-.settings/*
-/indexes/*
-/target/*
-/src/main/webapp/WEB-INF/classes/*
-/target/
-src/main/java/test/
-src/main/webapp/static/common/
-src/main/webapp/upload/
+target/
+!.mvn/wrapper/maven-wrapper.jar
 
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
