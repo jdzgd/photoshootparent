@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration scan="false">
+     
+    <property name="LOG_HOME" value="/Users/lime/Documents/devPoject/photoshoot/logs" />
+    <property name="MODULENAME" value="photoshoot-resource"/>
+    <property name="CONSOLE_LOG_PATTERN"
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger - %msg%n" />
+    <property name="LOG_PATTERN"
+              value="%d{yyyyMMdd HH:mm:ss SSS} [%thread][%level]-%msg%n" />
+
+    <!-- 控制台输出 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender"> 
+	    <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- debug 开发使用 -->
+    <appender name="DEBUG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${LOG_HOME}/${MODULENAME}/${MODULENAME}_debug.log</File>
+        <filter class="ch.qos.logback.core.filter.EvaluatorFilter"> 
+	        <evaluator> 
+	        	<expression>(level>=DEBUG)</expression> 
+	        </evaluator> 
+	        <OnMatch>ACCEPT</OnMatch>
+        	<OnMismatch>DENY</OnMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        	<fileNamePattern>${LOG_HOME}/${MODULENAME}/${MODULENAME}_%d{yyyyMMdd}_debug_%i.zip</fileNamePattern>
+        	<maxHistory>30</maxHistory>
+        	
+        	<TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+		    	<MaxFileSize>512MB</MaxFileSize>
+		    </TimeBasedFileNamingAndTriggeringPolicy>  
+        </rollingPolicy>
+        <layout>
+            <pattern>${LOG_PATTERN}</pattern>
+        </layout>
+    </appender>
+   
+    <!-- =========================================公用配置Start=============================== -->
+     <appender name="MODULENAME-INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+       	 <File>${LOG_HOME}/${MODULENAME}/${MODULENAME}_info.log</File>
+         <filter class="ch.qos.logback.core.filter.EvaluatorFilter"> 
+	        <evaluator> 
+	        	<expression>(level>=INFO)</expression> 
+	        </evaluator> 
+	        <OnMatch>ACCEPT</OnMatch>
+        	<OnMismatch>DENY</OnMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        	<fileNamePattern>${LOG_HOME}/${MODULENAME}/${MODULENAME}_%d{yyyyMMdd}_info_%i.zip</fileNamePattern>
+        	<maxHistory>30</maxHistory>
+        	
+        	<TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+		    	<MaxFileSize>512MB</MaxFileSize>
+		    </TimeBasedFileNamingAndTriggeringPolicy>  
+        </rollingPolicy>
+        <layout>
+            <pattern>${LOG_PATTERN}</pattern>
+        </layout>
+    </appender>
+    
+    
+    <appender name="MODULENAME-ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${LOG_HOME}/${MODULENAME}/${MODULENAME}_error.log</File>
+         <filter class="ch.qos.logback.core.filter.EvaluatorFilter"> 
+	        <evaluator> 
+	        	<expression>(level==ERROR)</expression> 
+	        </evaluator> 
+	        <OnMatch>ACCEPT</OnMatch>
+        	<OnMismatch>DENY</OnMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        	<fileNamePattern>${LOG_HOME}/${MODULENAME}/${MODULENAME}_%d{yyyyMMdd}_error.zip</fileNamePattern>
+        	<maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <layout>
+            <pattern>${LOG_PATTERN}</pattern>
+        </layout>
+    </appender>
+    
+    
+    <!-- =========================================公用配置End=============================== -->
+    
+    <root level="debug">
+	   	 <!--<appender-ref ref="MODULENAME-ERROR"/>-->
+	     <!--<appender-ref ref="MODULENAME-INFO"/>-->
+	     <!--<appender-ref ref="DEBUG"/>-->
+	     <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>
+

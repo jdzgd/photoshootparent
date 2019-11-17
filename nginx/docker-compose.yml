@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  nginx:
+    image: "nginx:1.17.5"
+    container_name: nginx
+    ports:
+      - "39080:80"
+    volumes:
+#      - ./conf:/etc/nginx:ro
+      - ./html:/usr/share/nginx/html

@@ -1,0 +1,16 @@
+cluster.name: "elasticsearch-cluster"
+#参考官网
+#https://www.elastic.co/guide/en/elasticsearch/reference/master/modules-discovery-bootstrap-cluster.html
+node.name: master
+discovery.seed_hosts: ["127.0.0.1", "[::1]"]
+cluster.initial_master_nodes: ["master"]
+network.host: 0.0.0.0
+discovery.zen.minimum_master_nodes: 1
+
+# 开启跨域访问支持，默认为false
+http.cors.enabled: true
+# 跨域访问允许的域名地址，(允许所有域名)以上使用正则
+http.cors.allow-origin: /.*/
+
+bootstrap.memory_lock: false
+bootstrap.system_call_filter: false

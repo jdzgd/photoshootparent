@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上传作品</title>
+    <!--<link rel="stylesheet" href="../js/bootstrap-3.3.7-dist/css/bootstrap.css">-->
+    <!--<link rel="stylesheet" href="../css/ps_default.css">-->
+    <link rel="stylesheet" href="../css/upload_picture.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <script src="../js/jquery-3.2.1.js"></script>
+    <script src="../js/loginstatus.js"></script>
+
+    <!--<script src="../js/bootstrap-3.3.7-dist/js/bootstrap.js"></script>-->
+
+    <style>
+        nav {
+            background-color: rgba(0, 0, 0, 0.41);
+        }
+        .drop-menu {
+            background-color: rgba(0, 0, 0, .2);
+        }
+
+    </style>
+</head>
+<body>
+    <div id="navbar"></div>
+<!--<header>
+    <nav class="navbar navbar-default navbar-fixed-top ">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                &lt;!&ndash;图标显示&ndash;&gt;
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">
+                        <img alt="影约" src="../img/psico.jpg" height="30px" width="30px"/>
+                    </a>
+                </div>
+            </div>
+            &lt;!&ndash; Collect the nav links, forms, and other content for toggling &ndash;&gt;
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/templates/photoshoot_default.html">首页 <span
+                            class="sr-only">(current)</span></a>
+                    </li>
+                    <li><a href="#">最新</a></li>
+
+                    <li><a href="#">约拍</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                           aria-haspopup="true"
+                           aria-expanded="false">发现 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">最新活动</a></li>
+                            <li><a href="#">往期活动</a></li>
+                            <li><a href="#">随便看看</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">下载APP</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">商务合作</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="javascript:;" >此处是用户的头像及个人信息</a></li>
+                    <li id="publish-pic"><a>发布照片</a></li>
+                </ul>
+            </div>&lt;!&ndash; /.navbar-collapse &ndash;&gt;
+        </div>&lt;!&ndash; /.container-fluid &ndash;&gt;
+    </nav>&lt;!&ndash;导航栏部分&ndash;&gt;
+</header>-->
+
+<main class="content">
+    <div class="left_part">
+        <ul class="photo_list">
+            <!--<li class="photo-item" style="">-->
+                <!--<i name="progress" class="icon-add">已上传：</i>-->
+                <!--<img src="../img/d1.jpg" style="width: 250px"/>-->
+            <!--</li>-->
+            <li class="upload_tips">
+                <div class="upload_pic">
+                    <i id="progress" class="icon-add"></i>
+                    <img src="../img/uploadpic/upload_initpic.png" style="display: inline-block ;width: 60px;"/>
+                    <!--<br/>-->
+                    <p>最大支持20MB的JPG格式照片</p>
+                    <!--加载进度条-->
+                    <div class="progress cust_progress ">
+                        <div id="example_progress" class="progress-bar progress-bar-info">
+                        </div>
+                    </div>
+                </div>
+                <input type="file" multiple="" id="file" name="file" accept="image/jpeg,image/jpg,image/webp">
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="right_part"></div>
+
+</main>
+    <script src="../js/upload_picture.js" ></script>
+    <script>
+
+    </script>
+</body>
+
+</html>

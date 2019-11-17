@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: photoshoot-ui
+server:
+  port: 38003
+
+debug: true

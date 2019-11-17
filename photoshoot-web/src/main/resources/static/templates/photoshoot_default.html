@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>影约</title>
+    <!--<link rel="stylesheet" href="../js/bootstrap-3.3.7-dist/css/bootstrap.css">-->
+    <!--<link rel="stylesheet" href="../css/ps_default.css">-->
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/adaptive.css">
+</head>
+
+
+<body style="overflow-x: hidden">
+
+<div>
+
+    <div id="wrapper">
+        <!-- 模态遮罩 -->
+        <div class="mask"></div>
+        <!-- 登录模态框 -->
+        <div class="login-modal">
+            <h1>登录</h1>
+            <h2>请输入您的账号密码</h2>
+            <form method="post" action="/PsUserController/check">
+                <div class="group">
+                    <input type="text" id="account" name="account" autofocus="" required=""/>
+                    <span class="line"></span>
+                    <label>用户名</label>
+                    <span class="err"></span>
+                </div>
+                <div class="group">
+                    <input type="password" id="lpassword" name="password" autofocus="" required="">
+                    <span class="line"></span>
+                    <label>密码</label>
+                    <span class="err"></span>
+                </div>
+                <a href="#" class="forgot">忘记密码?</a>
+                <button type="submit" class="button" id="logbtn">登录</button>
+            </form>
+        </div>
+        <!-- 注册模态框 -->
+        <div class="reg-modal">
+            <h1>注册</h1>
+            <h2>请输入您的账号密码</h2>
+            <div>
+                <div class="group">
+                    <input type="text" name="username" id="username" autofocus="" required="">
+                    <span class="line"></span>
+                    <label>用户名</label>
+                    <span class="err"></span>
+                </div>
+                <div class="group">
+                    <input type="password" name="password" onchange="checkPwds()" id="password" autofocus=""
+                           required="">
+                    <span class="line"></span>
+                    <label>密码</label>
+                    <span class="err"></span>
+                </div>
+                <div class="group">
+                    <input type="password" name="password" onchange="checkPwds()" id="vpassword" required>
+                    <span class="line"></span>
+                    <label>确认密码</label>
+                    <span class="err"></span>
+                </div>
+                <a href="#" class="forgot">忘记密码?</a>
+                <button type="submit" class="button" id="regbtn">注册</button>
+            </div>
+        </div>
+        <!-- 导航栏 -->
+        <div id="navbar"></div>
+        <!-- 横幅 -->
+        <div class="banner" onselectstart="return false;">
+            <div class="inner">
+                <h1>欢迎,影约!</h1>
+                <p>一个你从未发现过的幻境，此处，可以回忆你最美好的生活!</p>
+                <button class="about">开始了解</button>
+            </div>
+        </div>
+    </div>
+    <!-- 内容 -->
+    <div class="content">
+        <div class="section1">
+            <div class="start-line">
+                <a id="start">由此开始</a>
+            </div>
+            <div class="tabs-container">
+                <ul class="tabs-list">
+                    <li class="active">人物</li>
+                    <li>动物</li>
+                    <li>风景</li>
+                    <li>汽车</li>
+                </ul>
+            </div>
+        </div>
+        <div class="tabs-pic">
+            <ul class="tabs-pic-show">
+                <li class="active">
+                    <ul class="grid">
+                        <li>
+                            <div class="pic">
+                                <img src="../img/r0.jpg" alt="">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pic">
+                                <img src="../img/r1.jpg" alt="">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pic">
+                                <img src="../img/r2.jpg" alt="">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pic">
+                                <img src="../img/r3.jpg" alt="">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pic">
+                                <img src="../img/r4.jpg" alt="">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pic">
+                                <img src="../img/r5.jpg" alt="">
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="content1">
+        <div class="section1">
+            <div class="start-line">
+                <a>精彩呈现</a>
+            </div>
+            <!--<div class="activity-container">-->
+            <div class="introduce">
+                <div class="photo">
+                    <img class="videoImg" src="../img/index/videoImg.png" alt="">
+                </div>
+                <div class="sidebar">
+                    <div class="sidebar">
+                        <h1>提高你的摄影技巧</h1>
+                        <p>通过尝试新事物来挑战自我。参加由具有广泛专业知识的有影响力的摄影师领导的在线摄影班。习新的技能，并与各地志同道合的摄影师联系。</p>
+                        <div class="btn">
+                            <a class="btnA" href="#">查看类</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="introduce">
+                <div class="photo">
+                    <img class="photo" src="../img/index/phoneImg.png" alt="">
+                </div>
+                <div class="sidebar">
+                    <div class="sidebar">
+                        <h1>与您一起影约</h1>
+                        <p>下载美丽而有趣的方式来捕捉，编辑，分享和发现鼓舞人心的照片</p>
+                        <div class="btn">
+                            <a class="btnA" href="#">
+                                <img class="btnImg" src="../img/index/apple.png" alt="">app store</a>
+                            <a class="btnA" href="#">
+                                <img class="btnImg" src="../img/index/google.png" alt=""> google play</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <footer>
+        <div class="foot-container">
+            <ul>
+                <li><h4>关于我们</h4></li>
+                <li>这里充满了热爱摄影的人!</li>
+                <li> 这有有你需要的摄影师!</li>
+            </ul>
+            <!--联系与合作-->
+            <ul>
+                <li><h4>联系与合作</h4></li>
+                <li><a href="/templates/contactus.html">联系我们</a></li>
+                <li><a href="/templates/contactus.html">用户反馈</a></li>
+            </ul>
+            <!--移动-->
+            <ul>
+                <li><h4>客户端</h4></li>
+                <li><a href="#">影约 Android 版</a></li>
+                <li><a href="#" style="text-decoration: none">影约 Iphone 版</a></li>
+            </ul>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../js/psindex.js"></script>
+<script src="../js/loginstatus.js"></script>
+
+</body>
+
+</html>
